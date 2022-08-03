@@ -1,0 +1,14 @@
+.gridWrapper {
+	display: grid;
+	margin: 24px 0px;
+	gap: 24px;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.sidebar {
+	grid-column: 1/2;
+}
+
+.banner {
+	grid-column: 2/4;
+}
