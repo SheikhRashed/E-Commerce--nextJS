@@ -12,3 +12,15 @@
 .banner {
 	grid-column: 2/4;
 }
+
+.latestProduct {
+	padding: 60px 0px;
+}
+
+.heading {
+	margin: 0;
+	margin-bottom: 0px;
+	font-size: 36px;
+	line-height: 56px;
+	font-weight: 700;
+}

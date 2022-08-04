@@ -1,0 +1,50 @@
+[
+	{
+		"img": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+		"offer": false,
+		"category": "Overhead Doors",
+		"title": "Pepsi - 600ml",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"price": "$208.84"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1524805444758-089113d48a6d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTB8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+		"offer": true,
+		"category": "Roofing (Metal)",
+		"title": "Pear - Prickly",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"price": "$213.92"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1553456558-aff63285bdd1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+		"offer": true,
+		"category": "Curb & Gutter",
+		"title": "Oil - Avocado",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"price": "$71.16"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZHVjdHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
+		"offer": false,
+		"category": "Temp Fencing, Decorative Fencing and Gates",
+		"title": "Mcguinness - Blue Curacao",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"price": "$25.78"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+		"offer": false,
+		"category": "Hard Tile & Stone",
+		"title": "Turkey - Breast, Boneless Sk On",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"price": "$244.54"
+	},
+	{
+		"img": "https://images.unsplash.com/photo-1555375771-14b2a63968a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NTl8fHByb2R1Y3R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+		"offer": false,
+		"category": "EIFS",
+		"title": "Longos - Chicken Wings",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"price": "$180.72"
+	}
+]
