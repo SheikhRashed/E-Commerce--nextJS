@@ -1,10 +1,9 @@
 import React from "react"
-import Navbar from "../Navbar"
-import Footer from "../Footer"
+import Navbar from "../Navbar/Navbar"
+import Footer from "../Footer/Footer"
 import Head from "next/head"
-import styles from "./layout.module.css"
 
-const index = ({ children }) => {
+const Layout = ({ children }) => {
 	return (
 		<>
 			<Head>
@@ -18,10 +17,12 @@ const index = ({ children }) => {
 			</Head>
 
 			<Navbar />
-			<main>{children}</main>
+			<main>
+				{children}
+			</main>
 			<Footer />
 		</>
 	)
 }
 
-export default index
+export default Layout

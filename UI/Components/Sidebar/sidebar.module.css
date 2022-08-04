@@ -1,0 +1,41 @@
+
+
+.sidebar { 
+  position: relative;
+  overflow: hidden;
+  padding: 12px;
+  border: 1px solid #000;
+}
+
+
+.accordionHeader { 
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  justify-content: space-between;
+}
+
+.accordionBody { 
+margin-bottom: 12px;
+}
+
+.accordionTitle { 
+  color: #000;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.accordionIcon { 
+  font-size: 18px;
+}
+
+
+/* Accordion Body  */
+.productItems li p { 
+  margin: 0;
+  padding: 4px 0px;
+  font-size: 12px;
+}

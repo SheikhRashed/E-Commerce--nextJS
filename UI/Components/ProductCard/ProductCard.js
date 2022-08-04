@@ -1,19 +1,26 @@
 import React from "react"
+import Link from "next/link"
+import styles from "./ProductCard.module.css"
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai"
-import styles from "./card.module.css"
 
-const index = ({ data }) => {
-	const { img, offer, category, title, product_brief, price } = data
+const ProductCard = ({ data }) => {
+	const { img, offer, category, title, product_brief, price } = data;
+
 	return (
 		<div className={styles.productCard}>
+
 			{offer && <div className={styles.badge}>Hot</div>}
+
 			<div className={styles.productTumb}>
 				<img src={img} alt="" />
 			</div>
+
 			<div className={styles.productDetails}>
 				<span className={styles.productCatagory}>{category}</span>
 				<h4>
-					<a href="#">{title}</a>
+					<Link href="/category-details">
+						<a >{title}</a>
+					</Link>
 				</h4>
 				<p>{product_brief}</p>
 				<div className={styles.productBottomDetails}>
@@ -35,4 +42,4 @@ const index = ({ data }) => {
 	)
 }
 
-export default index
+export default ProductCard

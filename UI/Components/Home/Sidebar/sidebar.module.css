@@ -15,6 +15,16 @@
 	text-transform: capitalize;
 }
 
+.categoryWrapper{
+	overflow: hidden;
+}
+.category {
+	height: 296px;
+	position: relative;
+	overflow-y: scroll;
+	margin-right: -13px;
+}
+
 .category li a {
 	color: #000;
 	font-size: 14px;
@@ -23,10 +33,25 @@
 	width: 100%;
 	text-decoration: none;
 	padding: 8px 16px;
-	display: inline-block;
+	display: flex;
+	align-items: center;
 	text-transform: capitalize;
 }
 
 .category li a:hover {
 	background-color: #ddd;
+}
+
+.link {
+	display: flex;
+	align-items: center;
+}
+
+.icon {
+	color: #000;
+	margin-top: 5px;
+	font-size: 20px;
+	font-weight: bold;
+	margin-right: 12px;
+	display: inline-block;
 }

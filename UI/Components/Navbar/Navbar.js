@@ -5,7 +5,7 @@ import { BsFillCartFill } from "react-icons/bs"
 import { FiSearch } from "react-icons/fi"
 import styles from "./navbar.module.css"
 
-const index = () => {
+export default function Navbar() {
 	return (
 		<header className={styles.header}>
 			<div className={`container ${styles.container}`}>
@@ -46,6 +46,4 @@ const index = () => {
 			</div>
 		</header>
 	)
-}
-
-export default index
+}	

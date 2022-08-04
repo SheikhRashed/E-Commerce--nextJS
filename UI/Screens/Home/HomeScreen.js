@@ -1,22 +1,23 @@
 import React from "react"
-import Sidebar from "../UI/Screens/Homepage/Sidebar"
-import Banner from "../UI/Screens/Homepage/Banner"
-import categoryData from "../data/category.json"
-import productData from "../data/product.json"
-import latestProduct from "../data/latest-product.json"
+import categoryData from "../../../data/category.json"
+import productData from "../../../data/product.json"
+import latestProduct from "../../../data/latest-product.json"
+
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay } from "swiper"
-import ProductCard from "../UI/Components/ProductCard"
 
 import styles from "./home.module.css"
+import Banner from "../../Components/Home/Banner/Banner"
+import ProductCard from "../../Components/ProductCard/ProductCard"
+import SideBar from "../../Components/Home/Sidebar/SIdeBar"
 
-export default function Home() {
+export default function HomeScreen() {
 	return (
 		<>
 			<div className="container">
 				<div className={styles.gridWrapper}>
 					<div className={styles.sidebar}>
-						<Sidebar categoryList={categoryData} />
+						<SideBar categoryList={categoryData} />
 					</div>
 					{/* Banner */}
 					<div className={styles.banner}>

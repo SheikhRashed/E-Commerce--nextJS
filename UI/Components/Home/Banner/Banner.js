@@ -8,7 +8,7 @@ import { Pagination, Autoplay } from "swiper"
 
 import styles from "./banner.module.css"
 
-const index = ({ data }) => {
+export default function Banner({ data }) {
 	return (
 		<div className={styles.bannerSlider}>
 			<Swiper
@@ -32,4 +32,3 @@ const index = ({ data }) => {
 	)
 }
 
-export default index

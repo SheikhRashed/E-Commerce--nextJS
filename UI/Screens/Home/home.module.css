@@ -2,7 +2,7 @@
 	display: grid;
 	margin: 24px 0px;
 	gap: 24px;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(4, 1fr);
 }
 
 .sidebar {
@@ -10,7 +10,7 @@
 }
 
 .banner {
-	grid-column: 2/4;
+	grid-column: 2/5;
 }
 
 .latestProduct {
@@ -19,7 +19,7 @@
 
 .heading {
 	margin: 0;
-	margin-bottom: 0px;
+	margin-bottom: 24px;
 	font-size: 36px;
 	line-height: 56px;
 	font-weight: 700;

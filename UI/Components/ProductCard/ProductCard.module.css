@@ -1,8 +1,8 @@
 .productCard {
-	width: 380px;
+	width: 100%;
 	position: relative;
 	box-shadow: 0 2px 7px #dfdfdf;
-	margin: 50px auto;
+	/* margin: 50px auto; */
 	background: #fafafa;
 }
 
@@ -22,7 +22,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 300px;
+	height: 220px;
 	/* padding: 50px; */
 	background: #f0f0f0;
 }
@@ -34,7 +34,7 @@
 }
 
 .productDetails {
-	padding: 30px;
+	padding: 24px;
 }
 
 .productCatagory {
@@ -49,7 +49,7 @@
 .productDetails h4 a {
 	font-weight: 500;
 	display: block;
-	margin-bottom: 18px;
+	margin-bottom: 12px;
 	text-transform: uppercase;
 	color: #363636;
 	text-decoration: none;
@@ -69,8 +69,8 @@
 
 .productBottomDetails {
 	overflow: hidden;
+	padding-top: 12px;
 	border-top: 1px solid #eee;
-	padding-top: 20px;
 }
 
 .productBottomDetails div {

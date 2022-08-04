@@ -1,0 +1,37 @@
+.wrapper { 
+  gap: 24px;
+  display: grid;
+  padding: 90px 0px;
+  padding-top: 24px;
+  position: relative;
+  grid-template-columns: repeat(4,1fr);
+}
+.wrapperColOne { 
+  grid-column: 1/2;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 24px;
+  height: 100vh;
+}
+.wrapperColTwo { 
+  grid-column: 2/-1;
+}
+
+/* Responsive Query  */
+
+@media (max-width: 991px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
+  .wrapperColOne { 
+    grid-column: 1/-1;
+    position: static;
+    top: 0;
+    height: auto;
+  }
+  .wrapperColTwo { 
+    grid-column: 1/-1;
+  }
+
+
+}

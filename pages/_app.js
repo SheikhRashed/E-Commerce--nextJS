@@ -1,10 +1,11 @@
-import Layout from "../UI/Components/Layout"
-import styles from "../styles/global.css"
+import "../styles/global.css"
+import Layout from "../UI/Components/Layout/Layout"
 function MyApp({ Component, pageProps }) {
+
+	const getLayout = Component.getLayout || ((page) => page)
+
 	return (
-		<Layout>
-			<Component {...pageProps} />
-		</Layout>
+		getLayout(<Component {...pageProps} />)
 	)
 }
 
