@@ -63,4 +63,29 @@ body {
 	padding: 0px 12px;
 }
 
+/* Product Slider */
+
+.productSlider .mySwiper2 .swiper-slide { 
+	width: 100%;
+	height: 380px;
+	margin-bottom: 12px;
+}
+.productSlider .mySwiper .swiper-slide { 
+	width: 100%;
+	height: 80px;
+	border: 4px solid transparent;
+}
+
+.productSlider .mySwiper .swiper-slide.swiper-slide-thumb-active {
+	border-color: #000;
+}
+
+.productSlider .mySwiper .swiper-slide img ,
+.productSlider .mySwiper2 .swiper-slide img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+ }
+
+
 /*# sourceMappingURL=main.css.map */

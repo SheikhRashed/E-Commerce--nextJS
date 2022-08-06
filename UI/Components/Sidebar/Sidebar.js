@@ -47,7 +47,7 @@ export default function Sidebar() {
       </Disclosure>
 
       {/* Price  */}
-      <Disclosure>
+      {/* <Disclosure>
         {({ open }) => (
           <>
             <Disclosure.Button className={styles.accordionHeader}>
@@ -62,7 +62,7 @@ export default function Sidebar() {
             </Disclosure.Panel>
           </>
         )}
-      </Disclosure>
+      </Disclosure> */}
 
       {/* Choose Colors  */}
       <Disclosure>

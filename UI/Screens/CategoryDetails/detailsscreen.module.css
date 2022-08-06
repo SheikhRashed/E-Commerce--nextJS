@@ -1,0 +1,129 @@
+.categoryDetails {
+  margin-bottom: 60px;
+}
+
+.productSlider { 
+  margin-bottom: 24px;
+}
+
+.productInfo h2 { 
+  color: #000;
+  font-size: 32px;
+  line-height: 46px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.price { 
+  display: flex;
+  font-size: 24px;
+  font-weight: bold;
+  align-items: center;
+  margin-bottom: 12px;
+  
+}
+
+.price del { 
+  font-size: 18px;
+  color: #ddd;
+}
+.productInfo blockquote { 
+  margin-bottom: 24px;
+}
+.productInfo blockquote p { 
+  color: #000;
+  font-size: 16px;
+  line-height: 21px;
+  margin-bottom: 12px;
+}
+.productTags  { 
+  margin-bottom: 12px;
+}
+.productTags li {
+  margin-bottom: 6px;
+}
+.productTags li:nth-last-child(1) { 
+  margin: 0;
+}
+
+.productTags li p { 
+  font-size: 16px;
+  line-height: 21px;
+  color: rgb(102, 98, 98);
+  text-transform: uppercase;
+}
+
+.productTags li p span { 
+  font-weight: bold;
+  font-size: 15px;
+  color: #000;
+}
+
+.productActions { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counterWrapper { 
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.482);
+}
+
+.counterWrapper button { 
+  width: 30px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.counterWrapper p { 
+  width: 30px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.productCounter { 
+  display: flex;
+  align-items: center;
+}
+
+.productCounter .counterWrapper { 
+  margin-right: 12px;
+}
+
+.cartButton { 
+  padding: 8px 12px;
+  border: 1px solid #000;
+}
+
+.productActions { 
+  margin-top: 24px;
+  padding: 24px 0px;
+  border-top: 1px solid rgba(0, 0, 0, 0.293);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.293);
+}
+
+.heading { 
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-transform: capitalize;
+}
+
+.productWishList { 
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.productWishList svg { 
+  font-size: 18px;
+  margin-bottom: -4px;
+  margin-right: 6px;
+  display: inline-block;
+  font-weight: bold;
+}
