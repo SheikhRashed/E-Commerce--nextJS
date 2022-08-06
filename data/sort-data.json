@@ -1,0 +1,26 @@
+[
+  {
+  "name":"Default Sorting",
+  "unavailable":false
+  },
+  {
+  "name":"Sort By Popularity",
+  "unavailable":false
+  },
+  {
+  "name":"Sort By Average Rating",
+  "unavailable":false
+  },
+  {
+  "name":"Sort By Newness",
+  "unavailable":false
+  },
+  {
+  "name":"Sort By Price: Low to High",
+  "unavailable":false
+  },
+  {
+    "name":"Sort By Price: High to Low",
+    "unavailable":false
+  }
+]

@@ -1,0 +1,35 @@
+.filter { 
+  display: flex;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.selectBox  { 
+  padding: 4px 6px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(37, 36, 36, 0.75);
+}
+
+.selectDropdown { 
+  z-index: 999;
+  position: absolute;
+  padding: 8px 0px;
+  background-color: #fff;
+
+}
+
+.selectDropdown li { 
+  color: #000;
+  padding: 4px 12px;
+  font-size: 12px;
+  line-height: 16px;
+  transition: all 0.3s linear;
+  text-transform: capitalize;
+}
+
+.selectDropdown li:hover { 
+  background-color: #ddd;
+}
