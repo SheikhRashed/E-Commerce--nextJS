@@ -4,7 +4,10 @@
   position: relative;
   overflow: hidden;
   padding: 12px;
-  border: 1px solid #000;
+  padding-top: 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.321);
+  background-color: rgba(221, 221, 221, 0.54);
 }
 
 
@@ -38,4 +41,69 @@ margin-bottom: 12px;
   margin: 0;
   padding: 4px 0px;
   font-size: 12px;
+}
+
+/* color Selectors */
+.colorsWrapper { 
+  gap: 8px;
+  display: grid;
+  max-width: 120px;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.colorBox { 
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    background-color: #ddd;
+    border: 2px solid transparent;
+    transition: all 0.3s linear;
+}
+
+
+.colorBox.checkedBox { 
+  border: 2px solid #fff;
+}
+
+.black { 
+  background-color: #000;
+}
+
+.blue { 
+  background-color: blue;
+}
+
+.red { 
+  background-color: red;
+}
+
+.yellow { 
+  background-color: yellow;
+}
+
+
+/* Custom Block  */
+.customBlock { 
+  margin-top: 24px;
+  padding: 12px 0px;
+}
+
+.customBlock h2 { 
+  color: #000;
+  font-size: 22px;
+  line-height: 31px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.customBlock span { 
+  color: #000;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: bold;
+}
+
+.customBlock p { 
+  color: rgba(0, 0, 0, 0.586);
+  font-size: 12px;
+  line-height: 18px;
 }
