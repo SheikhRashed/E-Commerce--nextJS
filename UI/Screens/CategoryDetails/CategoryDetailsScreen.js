@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-// Css
+
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";

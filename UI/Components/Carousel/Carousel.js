@@ -24,7 +24,8 @@ export default function Carousel({ data }) {
           style={{
             "--swiper-navigation-color": "#fff",
           }}
-          spaceBetween={12}
+
+          spaceBetween={24}
           navigation={true}
           thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
           modules={[FreeMode, Navigation, Thumbs]}
@@ -40,8 +41,17 @@ export default function Carousel({ data }) {
         </Swiper>
         <Swiper
           onSwiper={setThumbsSwiper}
-          spaceBetween={12}
-          slidesPerView={5}
+          spaceBetween={6}
+          slidesPerView={2}
+          breakpoints={{
+            575: {
+              slidesPerView: 3,
+              spaceBetween: 12
+            },
+            768: {
+              slidesPerView: 5,
+            },
+          }}
           freeMode={true}
           watchSlidesProgress={true}
           modules={[FreeMode, Navigation, Thumbs]}
