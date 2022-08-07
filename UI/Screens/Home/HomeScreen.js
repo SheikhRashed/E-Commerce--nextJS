@@ -1,34 +1,41 @@
 import React from "react"
+import { Container, Row, Col } from "react-bootstrap"
 import categoryData from "../../../data/category.json"
 import productData from "../../../data/product.json"
 import latestProduct from "../../../data/latest-product.json"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay } from "swiper"
-
-import styles from "./home.module.css"
 import Banner from "../../Components/Home/Banner/Banner"
 import ProductCard from "../../Components/ProductCard/ProductCard"
 import SideBar from "../../Components/Home/Sidebar/SIdeBar"
+import styles from "./home.module.css"
+
+
 
 export default function HomeScreen() {
 	return (
 		<>
-			<div className="container">
-				<div className={styles.gridWrapper}>
-					<div className={styles.sidebar}>
-						<SideBar categoryList={categoryData} />
-					</div>
-					{/* Banner */}
-					<div className={styles.banner}>
-						<Banner data={productData} />
-					</div>
-				</div>
+			<div className={styles.Banner}>
+				<Container>
+					<Row>
+						<Col lg={3}>
+							<div className={styles.sidebar}>
+								<SideBar categoryList={categoryData} />
+							</div>
+						</Col>
+						<Col lg={9}>
+							<div className={styles.banner}>
+								<Banner data={productData} />
+							</div>
+						</Col>
+					</Row>
+				</Container>
 			</div>
 
 			{/* Latest Product  */}
 			<div className={styles.latestProduct}>
-				<div className="container">
+				<Container>
 					<h2 className={styles.heading}>Latest Product</h2>
 					<div className="productWrapper">
 						<Swiper
@@ -48,7 +55,7 @@ export default function HomeScreen() {
 							))}
 						</Swiper>
 					</div>
-				</div>
+				</Container>
 			</div>
 		</>
 	)

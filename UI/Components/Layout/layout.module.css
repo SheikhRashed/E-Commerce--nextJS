@@ -1,24 +1,17 @@
-.wrapper { 
-  gap: 24px;
-  display: grid;
+.nestedWrapper { 
   padding: 90px 0px;
   padding-top: 24px;
   position: relative;
-  grid-template-columns: repeat(4,1fr);
 }
-.wrapperColOne { 
-  grid-column: 1/2;
+.wrapperColOne {
   position: -webkit-sticky;
   position: sticky;
   top: 24px;
   height: 100vh;
 }
-.wrapperColTwo { 
-  grid-column: 2/-1;
-}
+
 
 /* Responsive Query  */
-
 @media (max-width: 991px) {
   .wrapper {
     grid-template-columns: 1fr;

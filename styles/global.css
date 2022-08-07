@@ -15,7 +15,8 @@ h6,
 ul,
 ol,
 li {
-	margin: 0;
+	margin: 0 ;
+	padding: 0 ;
 }
 
 ul,
@@ -57,11 +58,11 @@ body {
 	background-color: #fff !important;
 }
 
-.container {
+/* .container {
 	margin: 0px auto;
 	max-width: 1240px;
 	padding: 0px 12px;
-}
+} */
 
 /* Product Slider */
 

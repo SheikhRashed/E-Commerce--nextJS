@@ -23,6 +23,7 @@
 	position: relative;
 	overflow-y: scroll;
 	margin-right: -13px;
+	padding: 0;
 }
 
 .category li a {

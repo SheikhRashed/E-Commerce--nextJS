@@ -1,29 +1,32 @@
 import React from "react";
-import productData from "../../../data/latest-product.json"
-import ProductCard from "../../Components/ProductCard/ProductCard";
-import styles from "./category.module.css"
-import Filter from "../../Components/Filter/Filter";
+import { Container, Row, Col } from "react-bootstrap";
+
 import sortData from "../../../data/sort-data.json"
+import productData from "../../../data/latest-product.json"
+
+import ProductCard from "../../Components/ProductCard/ProductCard";
+import Filter from "../../Components/Filter/Filter";
+
+import styles from "./category.module.css"
+
 
 export default function CategoryScreen() {
   return (
     <>
       {/* Products List */}
       <div className={styles.productList}>
-        <div className="container">
-          {/* Filter  */}
-          <Filter sortingData={sortData} />
-
-          <div className={styles.productContent}>
+        <Container>
+          <Row>
+            <Filter sortingData={sortData} />
             {
               productData.map((data, idx) => (
-                <div key={idx}>
+                <Col key={idx} lg={4} className=" mb-4">
                   <ProductCard data={data} />
-                </div>
+                </Col>
               ))
             }
-          </div>
-        </div>
+          </Row>
+        </Container>
       </div>
     </>
   )

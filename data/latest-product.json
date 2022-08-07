@@ -4,7 +4,7 @@
 		"offer": false,
 		"category": "Overhead Doors",
 		"title": "Pepsi - 600ml",
-		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora ",
 		"price": "$208.84"
 	},
 	{
@@ -12,7 +12,7 @@
 		"offer": true,
 		"category": "Roofing (Metal)",
 		"title": "Pear - Prickly",
-		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora ",
 		"price": "$213.92"
 	},
 	{
@@ -20,7 +20,7 @@
 		"offer": true,
 		"category": "Curb & Gutter",
 		"title": "Oil - Avocado",
-		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora ",
 		"price": "$71.16"
 	},
 	{
@@ -28,7 +28,7 @@
 		"offer": false,
 		"category": "Temp Fencing, Decorative Fencing and Gates",
 		"title": "Mcguinness - Blue Curacao",
-		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora ",
 		"price": "$25.78"
 	},
 	{
@@ -36,7 +36,7 @@
 		"offer": false,
 		"category": "Hard Tile & Stone",
 		"title": "Turkey - Breast, Boneless Sk On",
-		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora ",
 		"price": "$244.54"
 	},
 	{
@@ -44,7 +44,7 @@
 		"offer": false,
 		"category": "EIFS",
 		"title": "Longos - Chicken Wings",
-		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora esse corrupti iste incidunt officiis beatae repellendus, ipsum id?",
+		"product_brief": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae, ea nobis tempora ",
 		"price": "$180.72"
 	}
 ]

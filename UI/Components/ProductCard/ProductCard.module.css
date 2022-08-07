@@ -1,9 +1,8 @@
 .productCard {
 	width: 100%;
 	position: relative;
-	box-shadow: 0 2px 7px #dfdfdf;
-	/* margin: 50px auto; */
 	background: #fafafa;
+	box-shadow: 0 2px 7px #dfdfdf;
 }
 
 .badge {
@@ -23,7 +22,6 @@
 	align-items: center;
 	justify-content: center;
 	height: 220px;
-	/* padding: 50px; */
 	background: #f0f0f0;
 }
 
@@ -82,6 +80,7 @@
 	font-size: 18px;
 	color: #fbb72c;
 	font-weight: 600;
+	white-space: nowrap;
 }
 
 .productPrice small {
