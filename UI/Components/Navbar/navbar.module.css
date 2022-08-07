@@ -1,13 +1,13 @@
 .header {
 	padding: 24px 0px;
-	position: relative;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+	width: 100%;
+	background-color: #fff;
+	box-shadow: -2px 4px 10px -3px rgba(0,0,0,0.53);
 }
 
-.container {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-}
 
 .logo {
 	font-size: 28px;
@@ -52,7 +52,34 @@
 	margin-right: 18px;
 }
 
-.actions li a {
+.actions li a,
+.searchIcon {
 	color: #000;
 	font-size: 24px;
+	font-weight: bold;
 }
+
+
+/* Navigation Menu  */
+.navMenu { 
+	display: flex;
+	align-items: center;
+}
+
+.navMenu li { 
+	margin-right: 24px;
+}
+
+.navMenu li a { 
+	color: #000;
+	font-size: 16px;
+	font-weight: 600;
+	text-decoration: none;
+	text-transform: capitalize;
+}
+
+.active { 
+	border-bottom: 2px solid #000;
+}
+
+
