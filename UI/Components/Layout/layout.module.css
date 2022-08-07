@@ -18,10 +18,11 @@
     grid-template-columns: 1fr;
   }
   .wrapperColOne { 
-    grid-column: 1/-1;
-    position: static;
     top: 0;
-    height: auto;
+    position: static;
+    grid-column: 1/-1;
+    margin-bottom: 24px;
+    height: auto !important;
   }
   .wrapperColTwo { 
     grid-column: 1/-1;

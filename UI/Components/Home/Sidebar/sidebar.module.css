@@ -56,3 +56,10 @@
 	margin-right: 12px;
 	display: inline-block;
 }
+
+
+@media(max-width: 991px) { 
+	.sidebar { 
+		margin-bottom: 24px;
+	}
+}

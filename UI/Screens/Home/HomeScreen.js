@@ -36,11 +36,19 @@ export default function HomeScreen() {
 			{/* Latest Product  */}
 			<div className={styles.latestProduct}>
 				<Container>
-					<h2 className={styles.heading}>Latest Product</h2>
+					<h2 className={styles.heading}>Category Lists</h2>
 					<div className="productWrapper">
 						<Swiper
-							slidesPerView={3}
-							spaceBetween={30}
+							slidesPerView={1}
+							spaceBetween={12}
+							breakpoints={{
+								767: {
+									slidesPerView: 2
+								},
+								991: {
+									slidesPerView: 3
+								}
+							}}
 							modules={[Autoplay]}
 							autoplay={{
 								delay: 1600,

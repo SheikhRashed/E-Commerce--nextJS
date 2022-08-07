@@ -5,9 +5,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import styles from "./sidebar.module.css"
 
 export default function Sidebar() {
-
   const [color, setColor] = useState('black')
-
 
   return (
     <div className={styles.sidebar}>

@@ -125,3 +125,28 @@
   display: inline-block;
   font-weight: bold;
 }
+
+/* Media Query  */
+
+@media(max-width: 991px) { 
+  .productInfo h2 { 
+  font-size: 24px;
+  }
+
+  .productInfo blockquote p  { 
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 575px) {
+  .productActions { 
+    flex-direction: column;
+  }
+
+  .productCounter { 
+    width: 100%;
+    margin-bottom: 24px;
+    justify-content: space-between;
+  }
+
+}
