@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
+
 import { Container, Row, Col } from "react-bootstrap";
-
 import sortData from "../../../data/sort-data.json"
-import productData from "../../../data/latest-product.json"
-
 import ProductCard from "../../Components/ProductCard/ProductCard";
 import Filter from "../../Components/Filter/Filter";
 
