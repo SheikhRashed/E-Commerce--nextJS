@@ -1,22 +1,17 @@
 import React, { useState } from 'react'
-
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
+
 import Carousel from "../../Components/Carousel/Carousel";
 import productData from "../../../data/products.json"
-import latestProduct from "../../../data/latest-product.json"
-
 
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 import { FaShoppingBag } from "react-icons/fa"
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Autoplay } from "swiper"
-
-import ProductCard from "../../Components/ProductCard/ProductCard";
 import styles from "./detailsscreen.module.css"
+import CategoryList from "../../Components/CategoryList/CategoryList";
 
 
 export default function CategoryDetailsScreen() {
@@ -121,30 +116,7 @@ export default function CategoryDetailsScreen() {
       </div>
 
       {/* Latest Product  */}
-      <div>
-        <div className="container">
-          <h2 className={styles.heading}>Latest Product</h2>
-          <div className="productWrapper">
-            <Swiper
-              slidesPerView={2}
-              spaceBetween={24}
-              modules={[Autoplay]}
-              autoplay={{
-                delay: 1600,
-                disableOnInteraction: true,
-              }}
-              className="mySwiper"
-            >
-              {latestProduct.map((data, idx) => (
-                <SwiperSlide key={idx}>
-                  <ProductCard data={data} />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-        </div>
-      </div>
-
+      <CategoryList />
 
     </>
   )

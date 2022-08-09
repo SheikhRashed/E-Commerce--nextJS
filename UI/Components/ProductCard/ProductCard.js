@@ -37,10 +37,10 @@ const ProductCard = ({ product }) => {
 						BDT {defaultVariation.price?.offer || defaultVariation.price?.regular}
 					</div>
 					<div className={styles.productLinks}>
-						<a href="">
+						<a href="#">
 							<AiOutlineHeart />
 						</a>
-						<a href="">
+						<a href="#">
 							<AiOutlineShoppingCart />
 						</a>
 					</div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -8,10 +9,10 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
-import styles from "./carousel.module.css"
+import { FreeMode, Navigation, Thumbs } from "swiper";
+// import styles from "./carousel.module.css"
 
 // import required modules
-import { FreeMode, Navigation, Thumbs } from "swiper";
 
 export default function Carousel({ data }) {
   console.log(data)
@@ -34,7 +35,7 @@ export default function Carousel({ data }) {
           {
             data.map((item, idx) => (
               <SwiperSlide key={idx}>
-                <img src={item.src} />
+                <Image src={item.src} alt="demo-alter" layout="fill" />
               </SwiperSlide>
             ))
           }
@@ -61,7 +62,7 @@ export default function Carousel({ data }) {
           {
             data.map((item, idx) => (
               <SwiperSlide key={idx}>
-                <img src={item.src} />
+                <Image src={item.src} alt="demo-alter" layout="fill" />
               </SwiperSlide>
             ))
           }
