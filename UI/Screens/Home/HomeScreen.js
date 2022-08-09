@@ -2,7 +2,6 @@ import React from "react"
 import { Container, Row, Col } from "react-bootstrap"
 import categoryData from "../../../data/category.json"
 import productData from "../../../data/product.json"
-import latestProduct from "../../../data/latest-product.json"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay } from "swiper"
@@ -10,10 +9,36 @@ import Banner from "../../Components/Home/Banner/Banner"
 import ProductCard from "../../Components/ProductCard/ProductCard"
 import SideBar from "../../Components/Home/Sidebar/SIdeBar"
 import styles from "./home.module.css"
+import { useState } from "react"
+import { useEffect } from "react"
 
 
 
 export default function HomeScreen() {
+
+	const [productList, setProductList] = useState([]);
+
+	async function fetchProduct() {
+		try {
+
+			const response = await fetch("https://server.buniyadi.craftedsys.com/api/product?limit=6&resolvePrimaryCategory=1");
+
+			if (response.ok) {
+				const jsonResponse = await response.json();
+				setProductList(jsonResponse.data)
+			} else {
+				console.log("error status: " + response.status)
+			}
+		} catch (err) {
+			console.log(err.message)
+		}
+	}
+
+	useEffect(() => {
+		fetchProduct()
+	}, [])
+
+
 	return (
 		<>
 			<div className={styles.Banner}>
@@ -56,9 +81,9 @@ export default function HomeScreen() {
 							}}
 							className="mySwiper"
 						>
-							{latestProduct.map((data, idx) => (
+							{productList.map((product, idx) => (
 								<SwiperSlide key={idx}>
-									<ProductCard data={data} />
+									<ProductCard product={product} />
 								</SwiperSlide>
 							))}
 						</Swiper>

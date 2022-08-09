@@ -20,7 +20,6 @@ export default function Sidebar() {
               {
                 open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />
               }
-
             </Disclosure.Button>
             <Disclosure.Panel>
               <div className={styles.accordionBody}>

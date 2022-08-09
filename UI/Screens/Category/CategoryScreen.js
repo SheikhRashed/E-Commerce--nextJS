@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import sortData from "../../../data/sort-data.json"
@@ -10,7 +10,28 @@ import Filter from "../../Components/Filter/Filter";
 import styles from "./category.module.css"
 
 
+
 export default function CategoryScreen() {
+
+  const [productList, setProductList] = useState([])
+
+  async function fetchProduct() {
+    try {
+      const response = await fetch("https://server.buniyadi.craftedsys.com/api/product?limit=16&resolvePrimaryCategory=1");
+
+      if (response.ok) {
+        const jsonResponse = await response.json()
+        setProductList(jsonResponse.data)
+      }
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
+  useEffect(() => {
+    fetchProduct()
+  }, [])
+
   return (
     <>
       {/* Products List */}
@@ -19,9 +40,9 @@ export default function CategoryScreen() {
           <Row>
             <Filter sortingData={sortData} />
             {
-              productData.map((data, idx) => (
+              productList.map((data, idx) => (
                 <Col key={idx} lg={4} className=" mb-4">
-                  <ProductCard data={data} />
+                  <ProductCard product={data} />
                 </Col>
               ))
             }

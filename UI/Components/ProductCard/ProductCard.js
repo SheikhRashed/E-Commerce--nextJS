@@ -2,31 +2,39 @@ import React from "react"
 import Link from "next/link"
 import styles from "./ProductCard.module.css"
 import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai"
+import Image from "next/image"
 
-const ProductCard = ({ data }) => {
-	const { img, offer, category, title, product_brief, price } = data;
+const ProductCard = ({ product }) => {
+	console.log(product)
+
+
+	const defaultVariation = product && product.variation && product.variation.length ?
+		product.variation[0]
+		: {}
 
 	return (
 		<div className={styles.productCard}>
 
-			{offer && <div className={styles.badge}>Hot</div>}
+			{/* {offer && <div className={styles.badge}>Hot</div>} */}
 
 			<div className={styles.productTumb}>
-				<img src={img} alt="" />
+				<Image src={`https://server.buniyadi.craftedsys.com/api/image/serve/${product.cover}?height=400&bg=fafafa`} alt={product.title} layout="fill" />
 			</div>
 
 			<div className={styles.productDetails}>
-				<span className={styles.productCatagory}>{category}</span>
+				<span className={styles.productCatagory}>{product?.primaryCategory?.title}</span>
 				<h4>
 					<Link href="/category-details">
-						<a >{title}</a>
+						<a >{product.title}</a>
 					</Link>
 				</h4>
-				<p>{product_brief}</p>
+				<p>{product.shortDescription}</p>
 				<div className={styles.productBottomDetails}>
 					<div className={styles.productPrice}>
-						<small>$96.00</small>
-						{price}
+						{defaultVariation.price?.offer &&
+							<small>BDT {defaultVariation.price?.regular}</small>
+						}
+						BDT {defaultVariation.price?.offer || defaultVariation.price?.regular}
 					</div>
 					<div className={styles.productLinks}>
 						<a href="">

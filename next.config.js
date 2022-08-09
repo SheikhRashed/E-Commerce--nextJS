@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['server.buniyadi.craftedsys.com'],
+  },
 }
 
 module.exports = nextConfig
