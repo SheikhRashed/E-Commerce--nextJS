@@ -1,11 +1,71 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { RadioGroup } from '@headlessui/react'
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import styles from "./sidebar.module.css"
+import Link from "next/link"
 
 export default function Sidebar() {
   const [color, setColor] = useState('black')
+  const [categoryList, setCategoryList] = useState([]);
+  const [brandList, setBrandList] = useState([]);
+  const [tagList, setTagList] = useState([]);
+
+  async function fetchProduct() {
+    try {
+
+      const response = await fetch("https://server.buniyadi.craftedsys.com/api/category");
+
+      if (response.ok) {
+        const category = await response.json();
+        setCategoryList(category.data)
+      } else {
+        console.log("error status: " + response.status)
+      }
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
+
+  async function fetchBrand() {
+    try {
+
+      const response = await fetch("https://server.buniyadi.craftedsys.com/api/brand");
+
+      if (response.ok) {
+        const brand = await response.json();
+        setBrandList(brand.data)
+      } else {
+        console.log("error status: " + response.status)
+      }
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
+
+  async function fetchTags() {
+    try {
+
+      const response = await fetch("https://server.buniyadi.craftedsys.com/api/tag");
+
+      if (response.ok) {
+        const tag = await response.json();
+        setTagList(tag.data)
+      } else {
+        console.log("error status: " + response.status)
+      }
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
+  useEffect(() => {
+    fetchProduct()
+    fetchBrand()
+    fetchTags()
+  }, [])
 
   return (
     <div className={styles.sidebar}>
@@ -24,18 +84,18 @@ export default function Sidebar() {
             <Disclosure.Panel>
               <div className={styles.accordionBody}>
                 <ul className={styles.productItems}>
-                  <li>
-                    <p>Product Name</p>
-                  </li>
-                  <li>
-                    <p>Product Name</p>
-                  </li>
-                  <li>
-                    <p>Product Name</p>
-                  </li>
-                  <li>
-                    <p>Product Name</p>
-                  </li>
+
+                  {
+                    categoryList.map((category, idx) => (
+                      <li key={idx}>
+                        <Link href={"/"}>
+                          <a>
+                            {category.title}
+                          </a>
+                        </Link>
+                      </li>
+                    ))
+                  }
                 </ul>
               </div>
             </Disclosure.Panel>
@@ -43,58 +103,66 @@ export default function Sidebar() {
         )}
       </Disclosure>
 
-      {/* Price  */}
-      {/* <Disclosure>
+      {/* Category  */}
+      <Disclosure defaultOpen="true">
         {({ open }) => (
           <>
             <Disclosure.Button className={styles.accordionHeader}>
-              <span className={styles.accordionTitle}>Price</span>
+              <span className={styles.accordionTitle}>Brand</span>
+
               {
                 open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />
               }
             </Disclosure.Button>
             <Disclosure.Panel>
               <div className={styles.accordionBody}>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laboriosam est eveniet quaerat iusto pariatur vero maiores, expedita facilis excepturi aliquam, blanditiis commodi. Est, dignissimos iste exercitationem impedit veritatis labore ex? </div>
+                <ul className={styles.productItems}>
+
+                  {
+                    brandList.map((brand, idx) => (
+                      <li key={idx}>
+                        <Link href={"/"}>
+                          <a>
+                            {brand.title}
+                          </a>
+                        </Link>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
             </Disclosure.Panel>
           </>
         )}
-      </Disclosure> */}
+      </Disclosure>
 
-      {/* Choose Colors  */}
-      <Disclosure>
+      {/* Category  */}
+      <Disclosure defaultOpen="true">
         {({ open }) => (
           <>
             <Disclosure.Button className={styles.accordionHeader}>
-              <span className={styles.accordionTitle}>Colors</span>
+              <span className={styles.accordionTitle}>Tags</span>
+
               {
                 open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />
               }
             </Disclosure.Button>
             <Disclosure.Panel>
-              <div className={styles.acacordionBody}>
-                <RadioGroup value={color} onChange={setColor} className={styles.colorsWrapper}>
-                  <RadioGroup.Option value="black">
-                    {({ checked }) => (
-                      <span className={`${styles.colorBox} ${checked && styles.checkedBox}   ${styles.black}`}></span>
-                    )}
-                  </RadioGroup.Option>
-                  <RadioGroup.Option value="blue">
-                    {({ checked }) => (
-                      <span className={`${styles.colorBox} ${checked && styles.checkedBox}   ${styles.blue}`}></span>
-                    )}
-                  </RadioGroup.Option>
-                  <RadioGroup.Option value="red">
-                    {({ checked }) => (
-                      <span className={`${styles.colorBox} ${checked && styles.checkedBox}   ${styles.red}`}></span>
-                    )}
-                  </RadioGroup.Option>
-                  <RadioGroup.Option value="yellow">
-                    {({ checked }) => (
-                      <span className={`${styles.colorBox} ${checked && styles.checkedBox}   ${styles.yellow}`}></span>
-                    )}
-                  </RadioGroup.Option>
-                </RadioGroup>
+              <div className={styles.accordionBody}>
+                <ul className={styles.tagLists}>
+
+                  {
+                    tagList.map((tag, idx) => (
+                      <li key={idx}>
+                        <Link href={"/"}>
+                          <a>
+                            {tag.title}
+                          </a>
+                        </Link>
+                      </li>
+                    ))
+                  }
+                </ul>
               </div>
             </Disclosure.Panel>
           </>

@@ -5,7 +5,6 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai"
 import Image from "next/image"
 
 const ProductCard = ({ product }) => {
-	console.log(product)
 
 
 	const defaultVariation = product && product.variation && product.variation.length ?

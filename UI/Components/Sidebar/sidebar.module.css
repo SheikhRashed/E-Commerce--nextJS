@@ -3,8 +3,7 @@
 .sidebar { 
   position: relative;
   overflow: hidden;
-  padding: 12px;
-  padding-top: 24px;
+  padding: 24px 0px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.321);
   background-color: rgba(221, 221, 221, 0.54);
@@ -16,6 +15,7 @@
   display: flex;
   align-items: center;
   margin-bottom: 12px;
+  padding: 0px 12px;
   justify-content: space-between;
 }
 
@@ -37,11 +37,22 @@ margin-bottom: 12px;
 
 
 /* Accordion Body  */
-.productItems li p { 
+.productItems li a { 
   margin: 0;
+  color: #000;
   padding: 4px 0px;
-  font-size: 12px;
+  font-size: 14px;
+  width: 100%;
+  display: inline-block;
+  padding: 4px 12px;
+  text-decoration: none;
 }
+
+.productItems li a:hover { 
+  background-color: #f4f4f4;
+
+}
+
 
 /* color Selectors */
 .colorsWrapper { 
@@ -85,7 +96,7 @@ margin-bottom: 12px;
 /* Custom Block  */
 .customBlock { 
   margin-top: 12px;
-  padding: 12px 0px;
+  padding: 12px;
 }
 
 .customBlock h2 { 
@@ -106,4 +117,24 @@ margin-bottom: 12px;
   color: rgba(0, 0, 0, 0.586);
   font-size: 12px;
   line-height: 18px;
+}
+
+/* Tags  */
+.tagLists {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0px 12px;
+  align-items: center;
+}
+
+.tagLists li {
+  margin-right: 6px;
+}
+.tagLists li a { 
+  padding: 4px 8px;
+  color: #000;
+  font-size: 14px;
+  border: 1px solid #000;
+  display: inline-block;
+  text-decoration: none;
 }
