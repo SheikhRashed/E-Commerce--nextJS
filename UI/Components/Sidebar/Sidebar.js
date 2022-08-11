@@ -108,7 +108,7 @@ export default function Sidebar() {
         {({ open }) => (
           <>
             <Disclosure.Button className={styles.accordionHeader}>
-              <span className={styles.accordionTitle}>Brand</span>
+              <span className={styles.accordionTitle}>Brands</span>
 
               {
                 open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />

@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { Listbox } from '@headlessui/react'
+import { Form } from "react-bootstrap"
 import styles from "./filter.module.css"
-
-
 const showData = [
   {
     value: 10,
@@ -43,23 +42,16 @@ export default function Filter({ sortingData }) {
             </Listbox.Options>
           </Listbox>
         </div>
-        <div className="filterShow">
-          <span> Show: </span>
-          <Listbox value={show} onChange={setShow}>
-            <Listbox.Button className={styles.selectBox}>{show.value}</Listbox.Button>
-            <Listbox.Options className={styles.selectDropdown}>
-              {showData.map((data, idx) => (
-                <Listbox.Option
-                  key={idx}
-                  value={data}
-                  disabled={data.unavailable}
-                >
-                  {data.value}
-                </Listbox.Option>
-              ))}
-            </Listbox.Options>
-          </Listbox>
+        <div className={styles.searchImage}>
+          <Form.Control placeholder="Search..." className={styles.searchField} />
+          <Form.Select aria-label="Select Image" className={styles.selectValue} >
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+          </Form.Select>
         </div>
+
       </div>
     </>
   )
