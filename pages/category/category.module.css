@@ -1,0 +1,16 @@
+.filterSort { 
+  display: flex;
+  align-items: center;
+
+}
+
+.filterSort span { 
+  margin-right: 12px;
+}
+
+.filterSort button { 
+  border-radius: 6px;
+  border: 1px solid #000;
+  background-color: transparent;
+  background-color: transparent;
+}
