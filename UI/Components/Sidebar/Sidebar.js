@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { RadioGroup } from '@headlessui/react'
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
+import { AiOutlineMinus, AiOutlinePlus, AiOutlineCheckSquare } from "react-icons/ai"
+import { BiSquareRounded } from "react-icons/bi"
 import { Form } from "react-bootstrap"
 import styles from "./sidebar.module.css"
 import Link from "next/link"
 
-export default function Sidebar() {
+export default function Sidebar({ selectedCategory, toggleCategory }) {
   const [color, setColor] = useState('black')
   const [categoryList, setCategoryList] = useState([]);
   const [brandList, setBrandList] = useState([]);
@@ -83,16 +84,16 @@ export default function Sidebar() {
               </Disclosure.Button>
               <Disclosure.Panel>
                 <div className={styles.accordionBody}>
-                  <Form className="formSelect">
-                    {
-                      categoryList.map((category, idx) => (
-                        <Form.Check type="radio" id={`category-product-${idx}`} key={idx}>
-                          <Form.Check.Input type="radio" isValid name="category" />
-                          <Form.Check.Label htmlFor={`category-product-${idx}`}>{category.title}</Form.Check.Label>
-                        </Form.Check>
-                      ))
-                    }
-                  </Form>
+                  {
+                    categoryList.map((category, idx) => (
+                      <div key={idx} className="px-2" onClick={() => toggleCategory(category._id)} role="button">
+
+                        {selectedCategory.includes(category._id) ? <AiOutlineCheckSquare /> : <BiSquareRounded />}
+                        <span className="ps-1">{category.title}</span>
+
+                      </div>
+                    ))
+                  }
                 </div>
               </Disclosure.Panel>
             </>
@@ -117,7 +118,7 @@ export default function Sidebar() {
                   {
                     tagList.map((tag, idx) => (
                       <Form.Check type="radio" id={`tag-product-${idx}`} key={idx}>
-                        <Form.Check.Input type="radio" isValid name="tags" />
+                        <Form.Check.Input type="radio" isValid name="tags" checked />
                         <Form.Check.Label htmlFor={`tag-product-${idx}`}>{tag.title}</Form.Check.Label>
                       </Form.Check>
                     ))
@@ -146,9 +147,9 @@ export default function Sidebar() {
                 <Form className="formSelect">
                   {
                     brandList.map((brand, idx) => (
-                      <Form.Check type="radio" id={`brand-product-${idx}`} key={idx}>
-                        <Form.Check.Input type="radio" isValid name="brands" />
-                        <Form.Check.Label htmlFor={`brand-product-${idx}`}>{brand.title}</Form.Check.Label>
+                      <Form.Check type="radio" id={`brand-product-${idx}`} key={idx} >
+                        <Form.Check.Input type="radio" isValid name="brands" checked />
+                        <Form.Check.Label htmlFor={`brand-product-${idx}`} onChange={() => console.log("Hello world")}>{brand.title}</Form.Check.Label>
                       </Form.Check>
                     ))
                   }

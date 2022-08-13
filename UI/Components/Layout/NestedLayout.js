@@ -12,12 +12,12 @@ function NestedLayout({ children }) {
       <div className={styles.nestedWrapper}>
         <Container>
           <Row>
-            <Col lg={3}>
+            {/* <Col lg={3}>
               <div className={styles.wrapperColOne}>
                 <Sidebar />
               </div>
-            </Col>
-            <Col lg={9}>
+            </Col> */}
+            <Col lg={12}>
               <div className={styles.wrapperColTwo}>
                 {children}
               </div>
