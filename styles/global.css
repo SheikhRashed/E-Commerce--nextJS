@@ -82,6 +82,29 @@ body {
 	object-fit: cover;
  }
 
+ /* Select Box */
+.formSelect { 
+	margin: 0px 12px;
+}
+ .formSelect .form-check{ 
+	margin: 0;
+	margin-bottom: 4px;
+ }
+
+.formSelect .form-check-input.is-valid~.form-check-label { 
+	color: #000;
+	font-size: 15px;
+}
+
+ .formSelect .form-check-input.is-valid { 
+	border-color: #ddd;
+ }
+ .formSelect .form-check-input.is-valid:focus { 
+	box-shadow: none;
+ }
+ .formSelect .form-check-input.is-valid:checked { 
+	background-color: #000;
+ }
 
  /* Media Query  */
  @media( min-width: 992px) { 

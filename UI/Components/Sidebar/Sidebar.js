@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Disclosure } from '@headlessui/react'
 import { RadioGroup } from '@headlessui/react'
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
+import { Form } from "react-bootstrap"
 import styles from "./sidebar.module.css"
 import Link from "next/link"
 
@@ -72,71 +73,34 @@ export default function Sidebar() {
 
       {/* Category  */}
       <Disclosure defaultOpen="true" >
-        {({ open }) => (
-          <>
-            <Disclosure.Button className={styles.accordionHeader}>
-              <span className={styles.accordionTitle}>Category</span>
+        {({ open }) => {
+          return (
+            <>
+              <Disclosure.Button className={styles.accordionHeader}>
+                <span className={styles.accordionTitle}>Category</span>
 
-              {
-                open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />
-              }
-            </Disclosure.Button>
-            <Disclosure.Panel>
-              <div className={styles.accordionBody}>
-                <ul className={styles.productItems}>
-
-                  {
-                    categoryList.map((category, idx) => (
-                      <li key={idx}>
-                        <Link href={"/"}>
-                          <a>
-                            {category.title}
-                          </a>
-                        </Link>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </div>
-            </Disclosure.Panel>
-          </>
-        )}
+                {open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />}
+              </Disclosure.Button>
+              <Disclosure.Panel>
+                <div className={styles.accordionBody}>
+                  <Form className="formSelect">
+                    {
+                      categoryList.map((category, idx) => (
+                        <Form.Check type="radio" id={`category-product-${idx}`} key={idx}>
+                          <Form.Check.Input type="radio" isValid name="category" />
+                          <Form.Check.Label htmlFor={`category-product-${idx}`}>{category.title}</Form.Check.Label>
+                        </Form.Check>
+                      ))
+                    }
+                  </Form>
+                </div>
+              </Disclosure.Panel>
+            </>
+          )
+        }}
       </Disclosure>
 
-      {/* Category  */}
-      <Disclosure defaultOpen="true">
-        {({ open }) => (
-          <>
-            <Disclosure.Button className={styles.accordionHeader}>
-              <span className={styles.accordionTitle}>Brands</span>
-
-              {
-                open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />
-              }
-            </Disclosure.Button>
-            <Disclosure.Panel>
-              <div className={styles.accordionBody}>
-                <ul className={styles.productItems}>
-
-                  {
-                    brandList.map((brand, idx) => (
-                      <li key={idx}>
-                        <Link href={"/"}>
-                          <a>
-                            {brand.title}
-                          </a>
-                        </Link>
-                      </li>
-                    ))
-                  }
-                </ul>
-              </div>
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
-
-      {/* Category  */}
+      {/* Tags  */}
       <Disclosure defaultOpen="true">
         {({ open }) => (
           <>
@@ -149,20 +113,46 @@ export default function Sidebar() {
             </Disclosure.Button>
             <Disclosure.Panel>
               <div className={styles.accordionBody}>
-                <ul className={styles.tagLists}>
-
+                <Form className="formSelect">
                   {
                     tagList.map((tag, idx) => (
-                      <li key={idx}>
-                        <Link href={"/"}>
-                          <a>
-                            {tag.title}
-                          </a>
-                        </Link>
-                      </li>
+                      <Form.Check type="radio" id={`tag-product-${idx}`} key={idx}>
+                        <Form.Check.Input type="radio" isValid name="tags" />
+                        <Form.Check.Label htmlFor={`tag-product-${idx}`}>{tag.title}</Form.Check.Label>
+                      </Form.Check>
                     ))
                   }
-                </ul>
+                </Form>
+              </div>
+            </Disclosure.Panel>
+          </>
+        )}
+      </Disclosure>
+
+
+      {/* Brands  */}
+      <Disclosure defaultOpen="true">
+        {({ open }) => (
+          <>
+            <Disclosure.Button className={styles.accordionHeader}>
+              <span className={styles.accordionTitle}>Brands</span>
+
+              {
+                open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />
+              }
+            </Disclosure.Button>
+            <Disclosure.Panel>
+              <div className={styles.accordionBody}>
+                <Form className="formSelect">
+                  {
+                    brandList.map((brand, idx) => (
+                      <Form.Check type="radio" id={`brand-product-${idx}`} key={idx}>
+                        <Form.Check.Input type="radio" isValid name="brands" />
+                        <Form.Check.Label htmlFor={`brand-product-${idx}`}>{brand.title}</Form.Check.Label>
+                      </Form.Check>
+                    ))
+                  }
+                </Form>
               </div>
             </Disclosure.Panel>
           </>
