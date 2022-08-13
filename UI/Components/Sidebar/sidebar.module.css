@@ -1,7 +1,8 @@
 
 
 .sidebar { 
-  position: relative;
+  top: 0;
+  position: sticky;
   overflow: hidden;
   padding: 24px 0px;
   border-radius: 10px;

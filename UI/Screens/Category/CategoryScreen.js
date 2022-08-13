@@ -37,6 +37,7 @@ export default function CategoryScreen() {
   function handleLimit(e) {
     setLimit(e.target.value)
   }
+
   const handleAsc = () => setAsc(!asc)
 
   async function fetchProduct(search, limit, asc, selectedCategory) {
@@ -75,13 +76,8 @@ export default function CategoryScreen() {
             <div className="col-3">
               <Sidebar selectedCategory={selectedCategory} toggleCategory={toggleCategory} />
             </div>
-
             <div className="col-9">
-
               <Row>
-
-
-                {/* <Filter sortingData={sortData} /> */}
                 <div className={styles.filter}>
                   <div className={styles.filterSort}>
                     <span>Sort: </span>
@@ -89,7 +85,6 @@ export default function CategoryScreen() {
                       <AiOutlineSortAscending />
                     </button>
                   </div>
-
                   <div className={styles.searchImage}>
                     <Form.Control name="searchText" placeholder="Search..." className={styles.searchField} onChange={handleSearch} value={search} />
                     <Form.Select name="selectAmount" aria-label="Select Image" className={styles.selectValue} onChange={handleLimit} value={limit}>
@@ -99,7 +94,6 @@ export default function CategoryScreen() {
                       <option value="20">20</option>
                     </Form.Select>
                   </div>
-
                 </div>
                 {
                   productList.map((data, idx) => (
@@ -108,13 +102,6 @@ export default function CategoryScreen() {
                     </Col>
                   ))
                 }
-                {/* {
-              product.map((data, idx) => (
-                <Col key={idx} lg={4} className=" mb-4">
-                  <ProductCard product={data} />
-                </Col>
-              ))
-            } */}
               </Row>
             </div>
           </Row>

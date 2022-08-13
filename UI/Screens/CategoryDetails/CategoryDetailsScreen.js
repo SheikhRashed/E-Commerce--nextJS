@@ -4,14 +4,10 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import CategoryDetails from "../../Components/CategoryDetails/CategoryDetails";
-
-
 import CategoryList from "../../Components/CategoryList/CategoryList";
 
 
 export default function CategoryDetailsScreen() {
-
-
 
   const [productList, setProductList] = useState([]);
 
@@ -33,9 +29,6 @@ export default function CategoryDetailsScreen() {
   useEffect(() => {
     fetchProduct()
   }, [])
-
-
-
 
 
 
