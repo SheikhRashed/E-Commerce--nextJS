@@ -9,8 +9,11 @@ import styles from "./CategoryDetails.module.css"
 import { Col, Container, Row } from "react-bootstrap"
 
 export default function CategoryDetails({ productDetail }) {
+  const defaultVariation = productDetail && productDetail.variation && productDetail.variation.length ?
+    productDetail.variation[0]
+    : {}
 
-  // f  console.log(productDetail.category)
+  console.log(productDetail)
 
   const [counter, setCounter] = useState(0);
   const [cart, setCart] = useState(false)
@@ -43,8 +46,16 @@ export default function CategoryDetails({ productDetail }) {
             <div className={styles.productInfo}>
               <h2>{productDetail.title}</h2>
               <p className={styles.price}>
-                <del>$1,999.00 </del> &nbsp; $1,699.00
+                {defaultVariation.price?.offer
+                  && <small>
+                    <del>{defaultVariation.price?.regular} </del>
+                  </small>
+                } &nbsp;
+                {defaultVariation.price?.offer || defaultVariation.price?.regular} BDT
               </p>
+
+              <div>
+              </div>
               <blockquote>
                 <p>
                   {productDetail.shortDescription}
