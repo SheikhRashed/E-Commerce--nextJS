@@ -7,21 +7,22 @@ import ProductCard from "../ProductCard/ProductCard";
 
 import styles from "./CategoryList.module.css"
 
-export default function CategoryList({ productList }) {
+export default function CategoryList({ productTitle, productList }) {
   return (
     <div className={styles.latestProduct}>
       <Container>
-        <h2 className={styles.heading}>Category Lists</h2>
+        <h2 className={styles.heading}>{productTitle}</h2>
         <div className="productWrapper">
           <Swiper
             slidesPerView={1}
             spaceBetween={12}
+            freeMode={true}
             breakpoints={{
               767: {
                 slidesPerView: 2
               },
               991: {
-                slidesPerView: 3
+                slidesPerView: 4
               }
             }}
             modules={[Autoplay]}

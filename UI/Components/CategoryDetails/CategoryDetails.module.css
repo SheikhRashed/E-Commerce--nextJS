@@ -29,6 +29,9 @@
   color: #000;
   font-size: 16px;
   line-height: 21px;
+  position: relative;
+  overflow: hidden;
+  height: 60px;
   margin-bottom: 12px;
 }
 .productTags  { 
@@ -94,10 +97,10 @@
 }
 
 .productActions { 
-  margin-top: 24px;
+  margin-top: 80px;
   padding: 24px 0px;
   border-top: 1px solid rgba(0, 0, 0, 0.293);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.293);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.293); */
 }
 
 .heading { 

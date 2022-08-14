@@ -10,12 +10,8 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 import { FreeMode, Navigation, Thumbs } from "swiper";
-// import styles from "./carousel.module.css"
-
-// import required modules
 
 export default function Carousel({ data }) {
-  console.log(data)
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
@@ -28,6 +24,7 @@ export default function Carousel({ data }) {
 
           spaceBetween={24}
           navigation={true}
+          freeMode={true}
           thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
           modules={[FreeMode, Navigation, Thumbs]}
           className="mySwiper2"

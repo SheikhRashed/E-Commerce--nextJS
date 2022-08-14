@@ -5,15 +5,43 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import CategoryDetails from "../../Components/CategoryDetails/CategoryDetails";
 import CategoryList from "../../Components/CategoryList/CategoryList";
+import { useRouter } from "next/router"
 
 
 export default function CategoryDetailsScreen() {
+  const router = useRouter()
+  const [productId, setProductId] = useState(null)
+  const [productDetail, setProductDetail] = useState([]);
+
+  // console.log(Array.isArray(productDetail.category))
+
+
+
+  useEffect(() => {
+    const id = router.query.id;
+    setProductId(id);
+  }, [router.isReady, router.query])
+
+
+  async function fetchProductDetail(productId) {
+    // const response = await fetch(`https://server.buniyadi.craftedsys.com/api/product/${productId}`);
+    const response = await fetch(`https://server.buniyadi.craftedsys.com/api/product/${productId}?resolveCategory=1&resolvePrimaryCategory=1&resolveBrand=1&resolveTag=1&resolveCover=1&resolveImage=1`);
+    if (response.ok) {
+      setProductDetail(await response.json())
+    }
+  }
+  useEffect(() => {
+    if (productId) {
+      fetchProductDetail(productId)
+    }
+  }, [productId])
+
 
   const [productList, setProductList] = useState([]);
 
-  async function fetchProduct() {
+  async function fetchProduct(productId) {
     try {
-      const response = await fetch("https://server.buniyadi.craftedsys.com/api/product?limit=6&resolvePrimaryCategory=1");
+      const response = await fetch(`https://server.buniyadi.craftedsys.com/api/product/${productId}/relatedProduct/?limit=6&resolvePrimaryCategory=1`);
 
       if (response.ok) {
         const jsonResponse = await response.json();
@@ -27,15 +55,15 @@ export default function CategoryDetailsScreen() {
   }
 
   useEffect(() => {
-    fetchProduct()
-  }, [])
+    if (productId) fetchProduct(productId)
+  }, [productId])
 
 
 
   return (
     <>
-      <CategoryDetails />
-      <CategoryList productList={productList} />
+      {productDetail && <CategoryDetails productDetail={productDetail} />}
+      <CategoryList productTitle="Related Products" productList={productList} />
     </>
   )
 }

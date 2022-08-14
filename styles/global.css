@@ -110,6 +110,7 @@ body {
  @media( min-width: 992px) { 
 	.productSlider {
 		display: flex;
+		flex-direction: row-reverse;
 	}
 
 	.productSlider .mySwiper2 .swiper-slide,
@@ -123,7 +124,7 @@ body {
 
 	.productSlider .mySwiper2 { 
 		width: 80%;
-		margin-right: 12px;
+		margin-left: 12px;
 	}
 	
 	.productSlider .mySwiper { 

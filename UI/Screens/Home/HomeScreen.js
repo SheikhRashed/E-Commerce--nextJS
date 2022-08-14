@@ -33,7 +33,7 @@ export default function HomeScreen() {
 	return (
 		<>
 			<Banner bannerImgData={bannerImages} />
-			<CategoryList productList={productList} />
+			<CategoryList productTitle="Prdouct Lists" productList={productList} />
 		</>
 	)
 }
