@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Listbox } from '@headlessui/react'
-import { Container, Row, Col, Form } from "react-bootstrap";
-import sortData from "../../../data/sort-data.json"
-import { AiOutlineSortAscending } from "react-icons/ai"
-import ProductCard from "../../Components/ProductCard/ProductCard";
+import { Container, Row } from "react-bootstrap";
 import styles from "./category.module.css"
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import Filter from "../../Components/Category/Filter/Filter";
+import ProductList from "../../Components/Category/ProductList/ProductList";
 
 
 export default function CategoryScreen() {
@@ -19,8 +17,6 @@ export default function CategoryScreen() {
     category: [],
     tag: []
   })
-  console.log(data)
-
 
   function toggleCategory(id) {
     const existingIndex = selectedCategory.indexOf(id);
@@ -56,6 +52,7 @@ export default function CategoryScreen() {
   function handleLimit(e) {
     setLimit(e.target.value)
   }
+
   const handleAsc = () => setAsc(!asc)
 
   // Fetch wise category, brand, tags [etc...]
@@ -145,34 +142,9 @@ export default function CategoryScreen() {
             </div>
 
             <div className="col-9">
-              <Row>
-                <div className={styles.filter}>
-                  <div className={styles.filterSort}>
-                    <span>Sort: </span>
-                    <button onClick={handleAsc}>
-                      <AiOutlineSortAscending />
-                    </button>
-                  </div>
+              <Filter handleAsc={handleAsc} search={search} handleSearch={handleSearch} limit={limit} handleLimit={handleLimit} />
 
-                  <div className={styles.searchImage}>
-                    <Form.Control name="searchText" placeholder="Search..." className={styles.searchField} onChange={handleSearch} value={search} />
-                    <Form.Select name="selectAmount" aria-label="Select Image" className={styles.selectValue} onChange={handleLimit} value={limit}>
-                      <option value="5">5</option>
-                      <option value="10">10</option>
-                      <option value="15">15</option>
-                      <option value="20">20</option>
-                    </Form.Select>
-                  </div>
-
-                </div>
-                {
-                  productList.map((data, idx) => (
-                    <Col key={idx} lg={4} className=" mb-4">
-                      <ProductCard product={data} />
-                    </Col>
-                  ))
-                }
-              </Row>
+              <ProductList productList={productList} />
             </div>
           </Row>
         </Container>

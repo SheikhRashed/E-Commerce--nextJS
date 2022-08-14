@@ -43,7 +43,6 @@
 .searchField,
 .selectValue {
   outline: none !important;
-  /* border: 0px !important; */
   border-radius: 0px !important;
 }
 
@@ -60,4 +59,23 @@
 .selectValue { 
   width: 80px !important;
   border-left: 1px solid #ddd !important;
+}
+
+
+.filterSort { 
+  display: flex;
+  align-items: center;
+
+}
+
+.filterSort span { 
+  margin-right: 12px;
+}
+
+.filterSort button { 
+  border-radius: 6px;
+  padding: 4px 8px;
+  border: 1px solid #ddd;
+  background-color: transparent;
+  background-color: transparent;
 }
