@@ -12,16 +12,35 @@ export default function CategoryScreen() {
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(5);
   const [asc, setAsc] = useState(false);
-  const [sort, setSort] = useState(sortData[0])
   const [productList, setProductList] = useState([]);
-
   const [selectedCategory, setSelectedCategory] = useState([]);
+  const [selectedTag, setSelectedTag] = useState([])
+  const [data, setData] = useState({
+    category: [],
+    tag: []
+  })
+  console.log(data)
+
+
   function toggleCategory(id) {
     const existingIndex = selectedCategory.indexOf(id);
     if (existingIndex === -1) {
       setSelectedCategory(prev => [...prev, id])
     } else {
       setSelectedCategory(prev => {
+        const temp = [...prev];
+        temp.splice(existingIndex, 1);
+        return temp;
+      })
+    }
+  }
+
+  function toggleTag(id) {
+    const existingIndex = selectedTag.indexOf(id);
+    if (existingIndex === -1) {
+      setSelectedTag(prev => [...prev, id])
+    } else {
+      setSelectedTag(prev => {
         const temp = [...prev];
         temp.splice(existingIndex, 1);
         return temp;
@@ -37,32 +56,80 @@ export default function CategoryScreen() {
   function handleLimit(e) {
     setLimit(e.target.value)
   }
-
   const handleAsc = () => setAsc(!asc)
 
-  async function fetchProduct(search, limit, asc, selectedCategory) {
+  // Fetch wise category, brand, tags [etc...]
+
+  async function fetchProduct(search, limit, asc, selectedCategory, selectedTag) {
     try {
-      let url = `https://server.buniyadi.craftedsys.com/api/product?search=${search}&limit=${limit}&resolvePrimaryCategory=1&sortOrder=${asc ? 1 : -1}`
+      let url = `https://server.buniyadi.craftedsys.com/api/product?search=${search}&limit=${limit}&resolvePrimaryCategory=1&sortOrder=${asc ? 1 : -1}&productCount=1`
 
       if (selectedCategory?.length) {
         url += `&category=${selectedCategory.join(",")}`
       }
 
-      const response = await fetch(url);
+      if (selectedTag?.length) {
+        url += `&tag=${selectedTag.join(",")}`
+      }
 
+      const response = await fetch(url);
       if (response.ok) {
         const jsonResponse = await response.json()
         setProductList(jsonResponse.data)
-
       }
     } catch (err) {
       console.log(err.message)
     }
   }
 
+  async function fetchCategory() {
+    try {
+
+      const response = await fetch("https://server.buniyadi.craftedsys.com/api/category?productCount=1");
+
+      if (response.ok) {
+        const category = await response.json();
+
+        setData(prevState => ({
+          ...prevState,
+          category: category.data
+        }));
+      } else {
+        console.log("error status: " + response.status)
+      }
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
+
+  async function fetchTags() {
+    try {
+
+      const response = await fetch("https://server.buniyadi.craftedsys.com/api/tag?productCount=1");
+
+      if (response.ok) {
+        const tag = await response.json();
+        setData((prevState) => (
+          {
+            ...prevState,
+            tag: tag.data
+          }
+        ))
+      } else {
+        console.log("error status: " + response.status)
+      }
+    } catch (err) {
+      console.log(err.message)
+    }
+  }
+
+
   useEffect(() => {
-    fetchProduct(search, limit, asc, selectedCategory)
-  }, [search, limit, asc, selectedCategory])
+    fetchProduct(search, limit, asc, selectedCategory, selectedTag)
+    fetchCategory()
+    fetchTags()
+  }, [search, limit, asc, selectedCategory, selectedTag])
 
 
 
@@ -74,8 +141,9 @@ export default function CategoryScreen() {
         <Container>
           <Row>
             <div className="col-3">
-              <Sidebar selectedCategory={selectedCategory} toggleCategory={toggleCategory} />
+              <Sidebar categoryList={data.category} tagList={data.tag} selectedCategory={selectedCategory} toggleCategory={toggleCategory} selectedTag={selectedTag} toggleTag={toggleTag} />
             </div>
+
             <div className="col-9">
               <Row>
                 <div className={styles.filter}>
@@ -85,6 +153,7 @@ export default function CategoryScreen() {
                       <AiOutlineSortAscending />
                     </button>
                   </div>
+
                   <div className={styles.searchImage}>
                     <Form.Control name="searchText" placeholder="Search..." className={styles.searchField} onChange={handleSearch} value={search} />
                     <Form.Select name="selectAmount" aria-label="Select Image" className={styles.selectValue} onChange={handleLimit} value={limit}>
@@ -94,6 +163,7 @@ export default function CategoryScreen() {
                       <option value="20">20</option>
                     </Form.Select>
                   </div>
+
                 </div>
                 {
                   productList.map((data, idx) => (

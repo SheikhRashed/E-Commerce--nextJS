@@ -139,3 +139,8 @@ margin-bottom: 12px;
   display: inline-block;
   text-decoration: none;
 }
+
+/* Checkbox icon  */
+.checkIcon { 
+  font-size: 18px;
+}

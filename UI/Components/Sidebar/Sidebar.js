@@ -1,73 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Disclosure } from '@headlessui/react'
-import { RadioGroup } from '@headlessui/react'
-import { AiOutlineMinus, AiOutlinePlus, AiOutlineCheckSquare } from "react-icons/ai"
-import { BiSquareRounded } from "react-icons/bi"
-import { Form } from "react-bootstrap"
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
+import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im"
 import styles from "./sidebar.module.css"
-import Link from "next/link"
 
-export default function Sidebar({ selectedCategory, toggleCategory }) {
-  const [color, setColor] = useState('black')
-  const [categoryList, setCategoryList] = useState([]);
-  const [brandList, setBrandList] = useState([]);
-  const [tagList, setTagList] = useState([]);
-
-  async function fetchProduct() {
-    try {
-
-      const response = await fetch("https://server.buniyadi.craftedsys.com/api/category");
-
-      if (response.ok) {
-        const category = await response.json();
-        setCategoryList(category.data)
-      } else {
-        console.log("error status: " + response.status)
-      }
-    } catch (err) {
-      console.log(err.message)
-    }
-  }
-
-
-  async function fetchBrand() {
-    try {
-
-      const response = await fetch("https://server.buniyadi.craftedsys.com/api/brand");
-
-      if (response.ok) {
-        const brand = await response.json();
-        setBrandList(brand.data)
-      } else {
-        console.log("error status: " + response.status)
-      }
-    } catch (err) {
-      console.log(err.message)
-    }
-  }
-
-
-  async function fetchTags() {
-    try {
-
-      const response = await fetch("https://server.buniyadi.craftedsys.com/api/tag");
-
-      if (response.ok) {
-        const tag = await response.json();
-        setTagList(tag.data)
-      } else {
-        console.log("error status: " + response.status)
-      }
-    } catch (err) {
-      console.log(err.message)
-    }
-  }
-
-  useEffect(() => {
-    fetchProduct()
-    fetchBrand()
-    fetchTags()
-  }, [])
+export default function Sidebar({ categoryList, tagList, selectedCategory, toggleCategory, selectedTag, toggleTag }) {
 
   return (
     <div className={styles.sidebar}>
@@ -86,11 +23,9 @@ export default function Sidebar({ selectedCategory, toggleCategory }) {
                 <div className={styles.accordionBody}>
                   {
                     categoryList.map((category, idx) => (
-                      <div key={idx} className="px-2" onClick={() => toggleCategory(category._id)} role="button">
-
-                        {selectedCategory.includes(category._id) ? <AiOutlineCheckSquare /> : <BiSquareRounded />}
-                        <span className="ps-1">{category.title}</span>
-
+                      <div key={idx} className="d-flex justify-content-between align-items-center px-2 mx-1" onClick={() => toggleCategory(category._id)} role="button">
+                        <p className="ps-1">{category.title} <span className="text-muted small">({category.productCount})</span> </p>
+                        {selectedCategory.includes(category._id) ? <ImCheckboxChecked className={styles.checkIcon} /> : <ImCheckboxUnchecked className={styles.checkIcon} />}
                       </div>
                     ))
                   }
@@ -114,46 +49,14 @@ export default function Sidebar({ selectedCategory, toggleCategory }) {
             </Disclosure.Button>
             <Disclosure.Panel>
               <div className={styles.accordionBody}>
-                <Form className="formSelect">
-                  {
-                    tagList.map((tag, idx) => (
-                      <Form.Check type="radio" id={`tag-product-${idx}`} key={idx}>
-                        <Form.Check.Input type="radio" isValid name="tags" checked />
-                        <Form.Check.Label htmlFor={`tag-product-${idx}`}>{tag.title}</Form.Check.Label>
-                      </Form.Check>
-                    ))
-                  }
-                </Form>
-              </div>
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
-
-
-      {/* Brands  */}
-      <Disclosure defaultOpen="true">
-        {({ open }) => (
-          <>
-            <Disclosure.Button className={styles.accordionHeader}>
-              <span className={styles.accordionTitle}>Brands</span>
-
-              {
-                open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />
-              }
-            </Disclosure.Button>
-            <Disclosure.Panel>
-              <div className={styles.accordionBody}>
-                <Form className="formSelect">
-                  {
-                    brandList.map((brand, idx) => (
-                      <Form.Check type="radio" id={`brand-product-${idx}`} key={idx} >
-                        <Form.Check.Input type="radio" isValid name="brands" checked />
-                        <Form.Check.Label htmlFor={`brand-product-${idx}`} onChange={() => console.log("Hello world")}>{brand.title}</Form.Check.Label>
-                      </Form.Check>
-                    ))
-                  }
-                </Form>
+                {
+                  tagList.map((tag, idx) => (
+                    <div key={idx} className="d-flex justify-content-between align-items-center px-2 mx-1" onClick={() => toggleTag(tag._id)} role="button">
+                      <p className="ps-1">{tag.title} <span className="text-muted small">({tag.productCount})</span> </p>
+                      {selectedTag.includes(tag._id) ? <ImCheckboxChecked className={styles.checkIcon} /> : <ImCheckboxUnchecked className={styles.checkIcon} />}
+                    </div>
+                  ))
+                }
               </div>
             </Disclosure.Panel>
           </>
@@ -161,7 +64,6 @@ export default function Sidebar({ selectedCategory, toggleCategory }) {
       </Disclosure>
 
       {/* Custom Block */}
-
       <div className={styles.customBlock}>
         <h2>Block Title</h2>
         <span>Block Subtitle</span>
