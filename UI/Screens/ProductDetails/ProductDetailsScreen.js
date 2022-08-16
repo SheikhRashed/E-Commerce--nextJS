@@ -3,19 +3,15 @@ import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import CategoryDetails from "../../Components/CategoryDetails/CategoryDetails";
+import ProductDetails from "../../Components/ProductDetails/ProductDetails";
 import CategoryList from "../../Components/CategoryList/CategoryList";
 import { useRouter } from "next/router"
 
 
-export default function CategoryDetailsScreen() {
+export default function ProductDetailsScreen() {
   const router = useRouter()
   const [productId, setProductId] = useState(null)
   const [productDetail, setProductDetail] = useState([]);
-
-  // console.log(Array.isArray(productDetail.category))
-
-
 
   useEffect(() => {
     const id = router.query.id;
@@ -61,7 +57,7 @@ export default function CategoryDetailsScreen() {
 
   return (
     <>
-      {productDetail && <CategoryDetails productDetail={productDetail} />}
+      {productDetail && <ProductDetails productDetail={productDetail} />}
       <CategoryList productTitle="Related Products" productList={productList} />
     </>
   )

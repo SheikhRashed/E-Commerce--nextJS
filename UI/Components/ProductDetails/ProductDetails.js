@@ -5,10 +5,10 @@ import { FaShoppingBag } from "react-icons/fa"
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai"
 import { MdOutlineFavoriteBorder, MdOutlineFavorite } from "react-icons/md"
 
-import styles from "./CategoryDetails.module.css"
+import styles from "./ProductDetails.module.css"
 import { Col, Container, Row } from "react-bootstrap"
 
-export default function CategoryDetails({ productDetail }) {
+export default function ProductDetails({ productDetail }) {
   const defaultVariation = productDetail && productDetail.variation && productDetail.variation.length ?
     productDetail.variation[0]
     : {}
@@ -34,7 +34,7 @@ export default function CategoryDetails({ productDetail }) {
 
 
   return (
-    <div className={styles.categoryDetails}>
+    <div>
       <Container>
         <Row>
           <Col lg={6}>
