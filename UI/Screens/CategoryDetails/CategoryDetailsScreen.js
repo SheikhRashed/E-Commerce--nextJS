@@ -24,7 +24,6 @@ export default function CategoryDetailsScreen() {
 
 
   async function fetchProductDetail(productId) {
-    // const response = await fetch(`https://server.buniyadi.craftedsys.com/api/product/${productId}`);
     const response = await fetch(`https://server.buniyadi.craftedsys.com/api/product/${productId}?resolveCategory=1&resolvePrimaryCategory=1&resolveBrand=1&resolveTag=1&resolveCover=1&resolveImage=1`);
     if (response.ok) {
       setProductDetail(await response.json())
