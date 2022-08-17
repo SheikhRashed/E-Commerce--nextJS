@@ -1,7 +1,7 @@
 import React from "react"
-import CategoryScreen from "../../UI/Screens/Category/CategoryScreen"
+import ProductScreen from "../../UI/Screens/Products/ProductsScreen"
 
 
 export default function productsPage() {
-	return <CategoryScreen />
+	return <ProductScreen />
 }

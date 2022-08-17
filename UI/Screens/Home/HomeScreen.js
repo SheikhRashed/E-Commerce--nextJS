@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import bannerImages from "../../../data/banner-img.json"
 import Banner from "../../Components/Home/Banner/Banner"
-import CategoryList from "../../Components/CategoryList/CategoryList"
+import ProductList from "../../Components/ProductList/ProductList"
 
 
 
@@ -33,7 +33,7 @@ export default function HomeScreen() {
 	return (
 		<>
 			<Banner bannerImgData={bannerImages} />
-			<CategoryList productTitle="Prdouct Lists" productList={productList} />
+			<ProductList productTitle="Prdouct Lists" productList={productList} />
 		</>
 	)
 }

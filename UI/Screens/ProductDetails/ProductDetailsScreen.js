@@ -4,7 +4,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import ProductDetails from "../../Components/ProductDetails/ProductDetails";
-import CategoryList from "../../Components/CategoryList/CategoryList";
+import ProductList from "../../Components/ProductList/ProductList";
 import { useRouter } from "next/router"
 
 
@@ -58,7 +58,7 @@ export default function ProductDetailsScreen() {
   return (
     <>
       {productDetail && <ProductDetails productDetail={productDetail} />}
-      <CategoryList productTitle="Related Products" productList={productList} />
+      <ProductList productTitle="Related Products" productList={productList} />
     </>
   )
 }

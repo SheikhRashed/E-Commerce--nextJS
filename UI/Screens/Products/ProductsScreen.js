@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
-import styles from "./category.module.css"
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import Filter from "../../Components/Category/Filter/Filter";
 import ProductList from "../../Components/Category/ProductList/ProductList";
 
+import styles from "./products.module.css"
+
 
 export default function CategoryScreen() {
+
   const [search, setSearch] = useState("");
   const [limit, setLimit] = useState(5);
   const [asc, setAsc] = useState(false);

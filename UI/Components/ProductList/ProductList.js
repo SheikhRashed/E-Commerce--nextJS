@@ -5,9 +5,9 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { Container, Row, Col } from "react-bootstrap"
 import ProductCard from "../ProductCard/ProductCard";
 
-import styles from "./CategoryList.module.css"
+import styles from "./productList.module.css"
 
-export default function CategoryList({ productTitle, productList }) {
+export default function ProductList({ productTitle, productList }) {
   return (
     <div className={styles.latestProduct}>
       <Container>
