@@ -12,6 +12,8 @@ export default function ProductDetailsScreen() {
   const router = useRouter()
   const [productId, setProductId] = useState(null)
   const [productDetail, setProductDetail] = useState([]);
+  const [productList, setProductList] = useState([]);
+
 
   useEffect(() => {
     const id = router.query.id;
@@ -32,7 +34,6 @@ export default function ProductDetailsScreen() {
   }, [productId])
 
 
-  const [productList, setProductList] = useState([]);
 
   async function fetchProduct(productId) {
     try {

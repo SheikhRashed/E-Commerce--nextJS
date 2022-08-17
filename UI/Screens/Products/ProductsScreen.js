@@ -15,7 +15,7 @@ export default function CategoryScreen() {
   const [productList, setProductList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [selectedTag, setSelectedTag] = useState([]);
-  const [price, setPrice] = useState(null)
+  const [price, setPrice] = useState(50)
 
   const [data, setData] = useState({
     category: [],
