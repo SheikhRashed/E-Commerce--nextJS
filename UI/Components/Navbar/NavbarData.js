@@ -4,7 +4,7 @@ export const NavbarData = [
     title: "Home",
   },
   {
-    path: "/category",
-    title: "Category",
+    path: "/products",
+    title: "All Products",
   }
 ]

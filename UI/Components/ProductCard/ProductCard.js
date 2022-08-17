@@ -23,7 +23,7 @@ const ProductCard = ({ product }) => {
 			<div className={styles.productDetails}>
 				<span className={styles.productCatagory}>{product?.primaryCategory?.title}</span>
 				<h4>
-					<Link href={"/category-details/?id=" + product._id}>
+					<Link href={"/product-details/?id=" + product._id}>
 						<a >{product.title}</a>
 					</Link>
 				</h4>

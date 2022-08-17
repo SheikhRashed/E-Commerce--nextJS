@@ -1,0 +1,75 @@
+[1mdiff --git a/UI/Components/Navbar/NavbarData.js b/UI/Components/Navbar/NavbarData.js[m
+[1mindex 1b004a2..43ac3ba 100644[m
+[1m--- a/UI/Components/Navbar/NavbarData.js[m
+[1m+++ b/UI/Components/Navbar/NavbarData.js[m
+[36m@@ -4,7 +4,7 @@[m [mexport const NavbarData = [[m
+     title: "Home",[m
+   },[m
+   {[m
+[31m-    path: "/category",[m
+[31m-    title: "Category",[m
+[32m+[m[32m    path: "/products",[m
+[32m+[m[32m    title: "All Products",[m
+   }[m
+ ][m
+[1mdiff --git a/UI/Components/ProductCard/ProductCard.js b/UI/Components/ProductCard/ProductCard.js[m
+[1mindex 64d7c67..345ee6b 100644[m
+[1m--- a/UI/Components/ProductCard/ProductCard.js[m
+[1m+++ b/UI/Components/ProductCard/ProductCard.js[m
+[36m@@ -23,7 +23,7 @@[m [mconst ProductCard = ({ product }) => {[m
+ 			<div className={styles.productDetails}>[m
+ 				<span className={styles.productCatagory}>{product?.primaryCategory?.title}</span>[m
+ 				<h4>[m
+[31m-					<Link href={"/category-details/?id=" + product._id}>[m
+[32m+[m					[32m<Link href={"/product-details/?id=" + product._id}>[m
+ 						<a >{product.title}</a>[m
+ 					</Link>[m
+ 				</h4>[m
+[1mdiff --git a/pages/category-details/index.js b/pages/category-details/index.js[m
+[1mdeleted file mode 100644[m
+[1mindex 9abf0ce..0000000[m
+[1m--- a/pages/category-details/index.js[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-import React from "react"[m
+[31m-import ProductDetailsScreen from "../../UI/Screens/ProductDetails/ProductDetailsScreen"[m
+[31m-[m
+[31m-export default function CategoryDetailsPage() {[m
+[31m-	return <ProductDetailsScreen />[m
+[31m-}[m
+[31m-[m
+[1mdiff --git a/pages/category/category.module.css b/pages/category/category.module.css[m
+[1mdeleted file mode 100644[m
+[1mindex a8bbf07..0000000[m
+[1m--- a/pages/category/category.module.css[m
+[1m+++ /dev/null[m
+[36m@@ -1,15 +0,0 @@[m
+[31m-.filterSort { [m
+[31m-  display: flex;[m
+[31m-  align-items: center;[m
+[31m-[m
+[31m-}[m
+[31m-[m
+[31m-.filterSort span { [m
+[31m-  margin-right: 12px;[m
+[31m-}[m
+[31m-[m
+[31m-.filterSort button { [m
+[31m-  border-radius: 6px;[m
+[31m-  border: 1px solid #000;[m
+[31m-  background-color: transparent;[m
+[31m-}[m
+\ No newline at end of file[m
+[1mdiff --git a/pages/category/index.js b/pages/category/index.js[m
+[1mdeleted file mode 100644[m
+[1mindex 7d446be..0000000[m
+[1m--- a/pages/category/index.js[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-import React from "react"[m
+[31m-import CategoryScreen from "../../UI/Screens/Category/CategoryScreen"[m
+[31m-[m
+[31m-[m
+[31m-export default function CategoryPage() {[m
+[31m-	return <CategoryScreen />[m
+[31m-}[m
