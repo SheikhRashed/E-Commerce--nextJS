@@ -5,7 +5,7 @@ import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im"
 import styles from "./sidebar.module.css"
 import RangeSlider from "../RangeSlider/RangeSlider"
 
-export default function Sidebar({ categoryList, tagList, selectedCategory, toggleCategory, selectedTag, toggleTag }) {
+export default function Sidebar({ categoryList, tagList, selectedCategory, toggleCategory, selectedTag, toggleTag, rangeHandler }) {
 
   return (
     <div className={styles.sidebar}>
@@ -70,14 +70,13 @@ export default function Sidebar({ categoryList, tagList, selectedCategory, toggl
           <>
             <Disclosure.Button className={styles.accordionHeader}>
               <span className={styles.accordionTitle}>Price Range</span>
-
               {
                 open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />
               }
             </Disclosure.Button>
             <Disclosure.Panel>
               <div className={styles.accordionBody}>
-                <RangeSlider />
+                <RangeSlider rangeHandler={rangeHandler} />
               </div>
             </Disclosure.Panel>
           </>

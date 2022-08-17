@@ -1,22 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import Range from "nouislider"
+import styles from "./rangeSlider.module.css"
 
-export default function RangeSlider() {
-  // Range.create(document.getElementById("rangeSlider"), {
-  //   start: [0, 90],
-  //   connect: [false, true, false],
-  //   step: 1,
-  //   range: { min: 0, max: 100 },
-  // });
-  useEffect(() => {
-    Range.create(document.getElementById("rangeSlider"), {
-      start: [0, 90],
-      connect: [false, true, false],
-      step: 1,
-      range: { min: 0, max: 100 },
-    });
-  }, [])
-  return <div className="slider input-slider" id="rangeSlider"></div>
+export default function RangeSlider({ rangeHandler }) {
+
+
+  return (
+    <div className={styles.rangeSlider}>
+      <span>{0}</span>
+      <input type="range" min={0} max={500} onChange={rangeHandler} />
+      <span>{500}</span>
+    </div>
+  )
 }
 

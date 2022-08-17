@@ -14,11 +14,14 @@ export default function CategoryScreen() {
   const [asc, setAsc] = useState(false);
   const [productList, setProductList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
-  const [selectedTag, setSelectedTag] = useState([])
+  const [selectedTag, setSelectedTag] = useState([]);
+  const [price, setPrice] = useState(null)
+
   const [data, setData] = useState({
     category: [],
     tag: []
   })
+
 
   function toggleCategory(id) {
     const existingIndex = selectedCategory.indexOf(id);
@@ -55,14 +58,19 @@ export default function CategoryScreen() {
     setLimit(e.target.value)
   }
 
+  function handleRange(e) {
+    setPrice(e.target.value)
+  }
+
+
+
   const handleAsc = () => setAsc(!asc)
 
-  // Fetch wise category, brand, tags [etc...]
 
-  async function fetchProduct(search, limit, asc, selectedCategory, selectedTag) {
+  async function fetchProduct(search, limit, asc, selectedCategory, selectedTag, price) {
     try {
-      let url = `https://server.buniyadi.craftedsys.com/api/product?search=${search}&limit=${limit}&resolvePrimaryCategory=1&sortOrder=${asc ? 1 : -1}&productCount=1`
-
+      let url = `https://server.buniyadi.craftedsys.com/api/product?search=${search}&limit=${limit}&maximumPrice=${price}&resolvePrimaryCategory=1&sortOrder=${asc ? 1 : -1}&productCount=1&priceRange=1`
+      console.log(url)
       if (selectedCategory?.length) {
         url += `&category=${selectedCategory.join(",")}`
       }
@@ -125,12 +133,13 @@ export default function CategoryScreen() {
 
 
   useEffect(() => {
-    fetchProduct(search, limit, asc, selectedCategory, selectedTag)
+    fetchProduct(search, limit, asc, selectedCategory, selectedTag, price)
+  }, [search, limit, asc, selectedCategory, selectedTag, price])
+
+  useEffect(() => {
     fetchCategory()
     fetchTags()
-  }, [search, limit, asc, selectedCategory, selectedTag])
-
-
+  }, [])
 
 
   return (
@@ -140,7 +149,7 @@ export default function CategoryScreen() {
         <Container>
           <Row>
             <div className="col-3">
-              <Sidebar categoryList={data.category} tagList={data.tag} selectedCategory={selectedCategory} toggleCategory={toggleCategory} selectedTag={selectedTag} toggleTag={toggleTag} />
+              <Sidebar categoryList={data.category} tagList={data.tag} selectedCategory={selectedCategory} toggleCategory={toggleCategory} selectedTag={selectedTag} toggleTag={toggleTag} price={price} rangeHandler={handleRange} />
             </div>
 
             <div className="col-9">

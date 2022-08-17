@@ -1,0 +1,15 @@
+.rangeSlider {
+  display: flex;
+  padding: 0px 12px;
+  align-items: center;
+}
+
+.rangeSlider input {
+  width: 100%;
+  margin: 0px 12px;
+}
+
+.rangeSlider span {
+  font-size: 16px;
+  font-weight: 500;
+}
