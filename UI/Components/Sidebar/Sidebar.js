@@ -3,6 +3,7 @@ import { Disclosure } from '@headlessui/react'
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai"
 import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im"
 import styles from "./sidebar.module.css"
+import RangeSlider from "../RangeSlider/RangeSlider"
 
 export default function Sidebar({ categoryList, tagList, selectedCategory, toggleCategory, selectedTag, toggleTag }) {
 
@@ -57,6 +58,26 @@ export default function Sidebar({ categoryList, tagList, selectedCategory, toggl
                     </div>
                   ))
                 }
+              </div>
+            </Disclosure.Panel>
+          </>
+        )}
+      </Disclosure>
+
+      {/* Price Range  */}
+      <Disclosure defaultOpen="true">
+        {({ open }) => (
+          <>
+            <Disclosure.Button className={styles.accordionHeader}>
+              <span className={styles.accordionTitle}>Price Range</span>
+
+              {
+                open ? <AiOutlineMinus className={styles.accordionIcon} /> : <AiOutlinePlus className={styles.accordionIcon} />
+              }
+            </Disclosure.Button>
+            <Disclosure.Panel>
+              <div className={styles.accordionBody}>
+                <RangeSlider />
               </div>
             </Disclosure.Panel>
           </>
