@@ -5,7 +5,8 @@ import { ImCheckboxChecked, ImCheckboxUnchecked } from "react-icons/im"
 import styles from "./sidebar.module.css"
 import RangeSlider from "../RangeSlider/RangeSlider"
 
-export default function Sidebar({ categoryList, tagList, selectedCategory, toggleCategory, selectedTag, toggleTag, price, rangeHandler }) {
+
+export default function Sidebar({ categoryList, tagList, selectedCategory, toggleCategory, selectedTag, toggleTag, rangeHandler, priceRange, userPrice }) {
 
   return (
     <div className={styles.sidebar}>
@@ -76,15 +77,16 @@ export default function Sidebar({ categoryList, tagList, selectedCategory, toggl
             </Disclosure.Button>
             <Disclosure.Panel>
               <div className={styles.accordionBody}>
-                <RangeSlider price={price} rangeHandler={rangeHandler} />
-              </div>
-            </Disclosure.Panel>
+                <RangeSlider priceRange={priceRange} rangeHandler={rangeHandler} userPrice={userPrice} />
+              </div >
+            </Disclosure.Panel >
           </>
-        )}
-      </Disclosure>
+        )
+        }
+      </Disclosure >
 
       {/* Custom Block */}
-      <div className={styles.customBlock}>
+      < div className={styles.customBlock} >
         <h2>Block Title</h2>
         <span>Block Subtitle</span>
         <blockquote>
@@ -92,8 +94,8 @@ export default function Sidebar({ categoryList, tagList, selectedCategory, toggl
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident nihil eaque, praesentium maxime laboriosam veritatis ad cum recusandae voluptate repellendus blanditiis magnam rem quisquam consequuntur minima. Earum accusamus enim magnam!
           </p>
         </blockquote>
-      </div>
+      </div >
 
-    </div>
+    </div >
   )
 }

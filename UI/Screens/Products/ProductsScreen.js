@@ -10,17 +10,19 @@ import styles from "./products.module.css"
 export default function CategoryScreen() {
 
   const [search, setSearch] = useState("");
-  const [limit, setLimit] = useState(5);
+  const [limit, setLimit] = useState(20);
   const [asc, setAsc] = useState(false);
   const [productList, setProductList] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState([]);
   const [selectedTag, setSelectedTag] = useState([]);
-  const [price, setPrice] = useState(50)
-
   const [data, setData] = useState({
     category: [],
     tag: []
-  })
+  });
+
+  const [userPrice, setUserPrice] = useState(null)
+  const [priceRange, setPriceRange] = useState({});
+  // const [pageData, setPageData] = useState()
 
 
   function toggleCategory(id) {
@@ -59,7 +61,8 @@ export default function CategoryScreen() {
   }
 
   function handleRange(e) {
-    setPrice(e.target.value)
+    setUserPrice(e.target.value)
+    // console.log(e.target.value)
   }
 
 
@@ -67,10 +70,10 @@ export default function CategoryScreen() {
   const handleAsc = () => setAsc(!asc)
 
 
-  async function fetchProduct(search, limit, asc, selectedCategory, selectedTag, price) {
+  async function fetchProduct(search, limit, asc, selectedCategory, selectedTag, userPrice) {
     try {
-      let url = `https://server.buniyadi.craftedsys.com/api/product?search=${search}&limit=${limit}&maximumPrice=${price}&resolvePrimaryCategory=1&sortOrder=${asc ? 1 : -1}&productCount=1&priceRange=1`
-      console.log(url)
+      let url = `https://server.buniyadi.craftedsys.com/api/product?search=${search}&limit=${limit}&resolvePrimaryCategory=1&sortOrder=${asc ? 1 : -1}&productCount=1&priceRange=1`
+
       if (selectedCategory?.length) {
         url += `&category=${selectedCategory.join(",")}`
       }
@@ -78,12 +81,19 @@ export default function CategoryScreen() {
       if (selectedTag?.length) {
         url += `&tag=${selectedTag.join(",")}`
       }
+      if (userPrice) {
+        url += `&maximumPrice=${userPrice}`
+      }
 
       const response = await fetch(url);
+
       if (response.ok) {
         const jsonResponse = await response.json()
         setProductList(jsonResponse.data)
+
+        if (!Object.keys(priceRange).length) setPriceRange(jsonResponse.priceRange)
       }
+
     } catch (err) {
       console.log(err.message)
     }
@@ -133,8 +143,9 @@ export default function CategoryScreen() {
 
 
   useEffect(() => {
-    fetchProduct(search, limit, asc, selectedCategory, selectedTag, price)
-  }, [search, limit, asc, selectedCategory, selectedTag, price])
+    fetchProduct(search, limit, asc, selectedCategory, selectedTag, userPrice)
+
+  }, [search, limit, asc, selectedCategory, selectedTag, userPrice])
 
   useEffect(() => {
     fetchCategory()
@@ -149,7 +160,7 @@ export default function CategoryScreen() {
         <Container>
           <Row>
             <div className="col-3">
-              <Sidebar categoryList={data.category} tagList={data.tag} selectedCategory={selectedCategory} toggleCategory={toggleCategory} selectedTag={selectedTag} toggleTag={toggleTag} price={price} rangeHandler={handleRange} />
+              <Sidebar categoryList={data.category} tagList={data.tag} selectedCategory={selectedCategory} toggleCategory={toggleCategory} selectedTag={selectedTag} toggleTag={toggleTag} rangeHandler={handleRange} priceRange={priceRange} userPrice={userPrice} />
             </div>
 
             <div className="col-9">
