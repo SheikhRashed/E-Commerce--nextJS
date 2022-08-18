@@ -26,7 +26,17 @@ const ProductCard = ({ product }) => {
 						<a >{product?.title}</a>
 					</Link>
 				</h4>
-				<p>{product?.shortDescription}</p>
+				<p>
+					{
+
+						product.shortDescription ? product?.shortDescription : `
+					
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dignissimos iusto fugit eaque, minus aliquid asperiores, consequuntur impedit cumque esse adipisci nihil, facere doloribus aut rem dolores pariatur quaerat obcaecati laudantium?`
+
+
+					}
+
+				</p>
 				<div className={styles.productBottomDetails}>
 					<div className={styles.productPrice}>
 						{defaultVariation.price?.offer &&
