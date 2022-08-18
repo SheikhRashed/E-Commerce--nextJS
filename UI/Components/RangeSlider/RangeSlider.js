@@ -5,7 +5,6 @@ import styles from "./rangeSlider.module.css"
 
 export default function RangeSlider({ priceRange, rangeHandler, userPrice }) {
 
-  console.log({ priceRange })
   return (
     <div className={styles.rangeSlider}>
       <span>{priceRange.minimumOfferPrice}</span>

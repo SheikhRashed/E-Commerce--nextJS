@@ -15,10 +15,6 @@ export default function ProductDetailsScreen() {
   const [productList, setProductList] = useState([]);
 
 
-  useEffect(() => {
-    const id = router.query.id;
-    setProductId(id);
-  }, [router.isReady, router.query])
 
 
   async function fetchProductDetail(productId) {
@@ -27,11 +23,6 @@ export default function ProductDetailsScreen() {
       setProductDetail(await response.json())
     }
   }
-  useEffect(() => {
-    if (productId) {
-      fetchProductDetail(productId)
-    }
-  }, [productId])
 
 
 
@@ -50,9 +41,24 @@ export default function ProductDetailsScreen() {
     }
   }
 
+
+  useEffect(() => {
+    const id = router.query.id;
+    setProductId(id);
+  }, [router.isReady, router.query])
+
+
   useEffect(() => {
     if (productId) fetchProduct(productId)
   }, [productId])
+
+
+  useEffect(() => {
+    if (productId) {
+      fetchProductDetail(productId)
+    }
+  }, [productId])
+
 
 
 

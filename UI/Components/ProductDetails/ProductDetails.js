@@ -9,11 +9,11 @@ import styles from "./ProductDetails.module.css"
 import { Col, Container, Row } from "react-bootstrap"
 
 export default function ProductDetails({ productDetail }) {
+
+
   const defaultVariation = productDetail && productDetail.variation && productDetail.variation.length ?
     productDetail.variation[0]
     : {}
-
-  console.log(productDetail)
 
   const [counter, setCounter] = useState(0);
   const [cart, setCart] = useState(false)

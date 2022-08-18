@@ -27,6 +27,7 @@ export default function CategoryScreen() {
 
   function toggleCategory(id) {
     const existingIndex = selectedCategory.indexOf(id);
+
     if (existingIndex === -1) {
       setSelectedCategory(prev => [...prev, id])
     } else {
@@ -62,7 +63,6 @@ export default function CategoryScreen() {
 
   function handleRange(e) {
     setUserPrice(e.target.value)
-    // console.log(e.target.value)
   }
 
 
@@ -165,7 +165,6 @@ export default function CategoryScreen() {
 
             <div className="col-9">
               <Filter handleAsc={handleAsc} search={search} handleSearch={handleSearch} limit={limit} handleLimit={handleLimit} />
-
               <ProductList productList={productList} />
             </div>
           </Row>

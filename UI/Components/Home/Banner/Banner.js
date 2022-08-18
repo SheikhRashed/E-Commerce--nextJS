@@ -1,4 +1,5 @@
 import React from "react"
+import Link from "next/link"
 import { Pagination, Autoplay } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Container, Row, Col } from "react-bootstrap"
@@ -9,15 +10,36 @@ import "swiper/css"
 import "swiper/css/pagination"
 import styles from "./banner.module.css"
 
-export default function Banner({ bannerImgData }) {
+export default function Banner({ bannerImgData, categoryList }) {
 	return (
-
 		<div className={styles.Banner}>
 			<Container>
 				<Row>
 					<Col lg={3}>
 						<div className={styles.sidebar}>
-							<SideBar categoryList={categoryData} />
+							{/* heading  */}
+							<div>
+								<h2 className={styles.heading}>Browse Category</h2>
+							</div>
+							{/* category item  */}
+							<div className={styles.categoryWrapper}>
+								<ul className={styles.category}>
+									{
+										categoryList.map((category) => (
+											<li key={category._id}>
+												<Link href={`/category?id=${category?._id}`}>
+													<a className={styles.link}>
+														<span>
+															<Image src={`https://server.buniyadi.craftedsys.com/api/image/serve/${category.icon._id}?quality=100`} alt="category icon" layout="fill" />
+														</span>
+														{category.title}
+													</a>
+												</Link>
+											</li>
+										))
+									}
+								</ul>
+							</div>
 						</div>
 					</Col>
 					<Col lg={9}>

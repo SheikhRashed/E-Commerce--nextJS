@@ -9,6 +9,7 @@ import ProductList from "../../Components/ProductList/ProductList"
 export default function HomeScreen() {
 
 	const [productList, setProductList] = useState([]);
+	const [categoryList, setCategoryList] = useState([]);
 
 	async function fetchProduct() {
 		try {
@@ -25,14 +26,27 @@ export default function HomeScreen() {
 		}
 	}
 
+	async function fetchCategory() {
+		try {
+			const response = await fetch("https://server.buniyadi.craftedsys.com/api/category?productCount=1&resolveIcon=1&resolveImage=1");
+			if (response.ok) {
+				const categoryList = await response.json()
+				setCategoryList(categoryList.data)
+			}
+		} catch (err) {
+			console.log(err.message)
+		}
+	}
+
 	useEffect(() => {
 		fetchProduct()
+		fetchCategory()
 	}, [])
 
 
 	return (
 		<>
-			<Banner bannerImgData={bannerImages} />
+			<Banner bannerImgData={bannerImages} categoryList={categoryList} />
 			<ProductList productTitle="Prdouct Lists" productList={productList} />
 		</>
 	)
