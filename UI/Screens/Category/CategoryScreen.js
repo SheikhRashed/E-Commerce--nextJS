@@ -6,20 +6,20 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 export default function CategoryScreen() {
+
+  // Category page State 
   const router = useRouter()
-  const [categoryID, setCategoryID] = useState('62e9568259c9749104839589')
   const [products, setProducts] = useState([])
 
-  console.log(products)
-
-  async function fetchCategory(id) {
+  // Fetch Products From Category ID 
+  async function fetchCategory(categoryID) {
 
     try {
 
-      let url = `https://server.buniyadi.craftedsys.com/api/product`
+      let url = `https://server.buniyadi.craftedsys.com/api/product?`;
 
-      if (id) {
-        url += `?category=${id}`
+      if (categoryID) {
+        url += `category=${categoryID}`
       }
 
       const response = await fetch(url)
@@ -34,17 +34,10 @@ export default function CategoryScreen() {
     }
   }
 
-
   useEffect(() => {
     const id = router.query.id;
-    setCategoryID(id)
-
-  }, [router.isReady, router.query,])
-
-  useEffect(() => {
-    fetchCategory(categoryID)
-  }, [categoryID])
-
+    fetchCategory(id)
+  }, [router.isReady, router.query])
 
   return (
     <Container>
