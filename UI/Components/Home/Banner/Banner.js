@@ -10,7 +10,8 @@ import "swiper/css"
 import "swiper/css/pagination"
 import styles from "./banner.module.css"
 
-export default function Banner({ bannerImgData, categoryList }) {
+export default function Banner({ bannerImgData, categoryList, showCase }) {
+	console.log(showCase)
 	return (
 		<div className={styles.Banner}>
 			<Container>
@@ -27,7 +28,7 @@ export default function Banner({ bannerImgData, categoryList }) {
 									{
 										categoryList.map((category) => (
 											<li key={category._id}>
-												<Link href={`/category?id=${category?._id}`}>
+												<Link href={`/category?name=${category?.title}&id=${category?._id}`}>
 													<a className={styles.link}>
 														<span>
 															<Image src={`https://server.buniyadi.craftedsys.com/api/image/serve/${category.icon._id}?quality=100`} alt="category icon" layout="fill" />
@@ -46,22 +47,39 @@ export default function Banner({ bannerImgData, categoryList }) {
 						<div className={styles.banner}>
 							<div className={styles.bannerSlider}>
 								<Swiper
+
 									modules={[Pagination, Autoplay]}
 									autoplay={{
 										delay: 1200,
 										disableOnInteraction: true,
 									}}
-									pagination={{ clickable: true }}
+									pagination={{ clickable: true, dynamicBullets: true }}
 									className="mySwiper"
 								>
-									{bannerImgData.map((item, idx) => (
-										<SwiperSlide key={idx}>
-											<div className={styles.sliderImg}>
-												{/* <img src={item.url} alt="" /> */}
+									{showCase.map((product) => (
+										<SwiperSlide key={product._id}>
+											<Row className="align-items-center">
+												<Col xs={6}>
+													<div>
+														<h2 className="mb-2">
+															{product.title}
+														</h2>
+														<blockquote>
+															<p>
+																{product.shortDescription ? product.shortDescription : 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis quisquam quas consequuntur, deserunt a, sit error nostrum magnam aliquam odit nemo cum enim fugiat magni harum, consequatur et qui assumenda.'}
 
-												<Image src={item.src} alt="demo-banner-img" layout="fill" />
+															</p>
+														</blockquote>
+													</div>
+												</Col>
+												<Col xs={6} >
+													<div className={styles.sliderImg}>
+														<Image src={`https://server.buniyadi.craftedsys.com/api/image/serve/${product?.image}?quality=100&format=png&fit=contain`} alt={product.title} layout="fill" />
+													</div>
+												</Col>
 
-											</div>
+											</Row>
+
 										</SwiperSlide>
 									))}
 								</Swiper>

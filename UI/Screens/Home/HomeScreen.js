@@ -10,10 +10,11 @@ export default function HomeScreen() {
 
 	const [productList, setProductList] = useState([]);
 	const [categoryList, setCategoryList] = useState([]);
+	// console.log(productList)
 
 	async function fetchProduct() {
 		try {
-			const response = await fetch("https://server.buniyadi.craftedsys.com/api/product?limit=6&resolvePrimaryCategory=1");
+			const response = await fetch("https://server.buniyadi.craftedsys.com/api/product?limit=12&resolvePrimaryCategory=1");
 
 			if (response.ok) {
 				const jsonResponse = await response.json();
@@ -46,7 +47,7 @@ export default function HomeScreen() {
 
 	return (
 		<>
-			<Banner bannerImgData={bannerImages} categoryList={categoryList} />
+			<Banner bannerImgData={bannerImages} categoryList={categoryList} showCase={productList} />
 			<ProductList productTitle="Prdouct Lists" productList={productList} />
 		</>
 	)
