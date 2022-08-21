@@ -1,16 +1,42 @@
-import React from 'react';
-import { Modal } from "bootstrap";
+import React, { useState } from 'react';
+import Image from "next/image";
+import { Dialog, Combobox } from '@headlessui/react'
+import styles from "./searchField.module.css"
+import Link from "next/link";
+export default function SearchField({ status, handler, products }) {
+
+  const [query, setQuery] = useState('');
+  const [selectedProduct, setSelectedProduct] = useState(products[null]);
+
+  const filteredProduct = products.filter((product) => product.title.toLowerCase().includes(query.toLocaleLowerCase()));
 
 
-export default function SearchField({ status, handler }) {
   return (
-    <Modal show={status} onHide={handler}>
-      <Modal.Header closeButton>
-        <Modal.Title>Modal heading</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa neque cumque quam asperiores impedit! Exercitationem, numquam corporis eius sit officiis nihil alias nesciunt nemo sapiente? Cumque dolores deleniti at quas?
-      </Modal.Body>
-    </Modal>
+    <Dialog open={status} onClose={handler} className={styles.dialogueWrapper}>
+      <Dialog.Panel className={styles.dialogue}>
+        <Combobox value={selectedProduct} onChange={setSelectedProduct}>
+          <Combobox.Input onChange={(event) => setQuery(event.target.value)} placeholder="Search..." />
+          <Combobox.Options className={styles.productList}>
+            {filteredProduct.map((product, idx) => (
+              <Combobox.Option key={idx} value={product}>
+                <div className={styles.product}>
+                  {/* image */}
+                  <div className={styles.productImg}>
+                    <Image src={`https://server.buniyadi.craftedsys.com/api/image/serve/${product?.cover}`} layout="fill" alt="demo" />
+                  </div>
+                  {/* Info */}
+                  <Link href={`/product-details/?id=${product._id}`} >
+                    <a className={styles.productTitle} onClick={handler}>
+                      {product.title}
+                    </a>
+                  </Link>
+                </div>
+                {/* {person} */}
+              </Combobox.Option>
+            ))}
+          </Combobox.Options>
+        </Combobox>
+      </Dialog.Panel>
+    </Dialog>
   )
 }

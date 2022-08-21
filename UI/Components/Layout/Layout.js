@@ -1,10 +1,34 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import Head from "next/head"
 import Navbar from "../Navbar/Navbar"
 import Footer from "../Footer/Footer"
 import styles from "./layout.module.css"
 
 const Layout = ({ children }) => {
+	const [productList, setProductList] = useState([]);
+
+
+	async function fetchProduct() {
+		try {
+			const response = await fetch("https://server.buniyadi.craftedsys.com/api/product?resolvePrimaryCategory=1&resolveImage=1");
+
+			if (response.ok) {
+				const jsonResponse = await response.json();
+				setProductList(jsonResponse.data)
+			} else {
+				console.log("error status: " + response.status)
+			}
+		} catch (err) {
+			console.log(err.message)
+		}
+	}
+
+	useEffect(() => {
+		fetchProduct()
+	}, [])
+
+
+
 	return (
 		<>
 			<Head>
@@ -17,7 +41,7 @@ const Layout = ({ children }) => {
 				/>
 			</Head>
 
-			<Navbar />
+			<Navbar productList={productList} />
 			<main className={styles.mainWrapper}>
 				{children}
 			</main>

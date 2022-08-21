@@ -10,7 +10,6 @@ export default function HomeScreen() {
 
 	const [productList, setProductList] = useState([]);
 	const [categoryList, setCategoryList] = useState([]);
-	// console.log(productList)
 
 	async function fetchProduct() {
 		try {

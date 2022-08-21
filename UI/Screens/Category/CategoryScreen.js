@@ -14,7 +14,6 @@ export default function CategoryScreen() {
   const [products, setProducts] = useState([])
 
 
-  console.log(categoryDetails)
   // Fetch Products From Category ID 
   async function fetchProducts(categoryID) {
 

@@ -11,7 +11,6 @@ import "swiper/css/pagination"
 import styles from "./banner.module.css"
 
 export default function Banner({ bannerImgData, categoryList, showCase }) {
-	console.log(showCase)
 	return (
 		<div className={styles.Banner}>
 			<Container>

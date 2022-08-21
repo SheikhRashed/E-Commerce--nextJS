@@ -1,0 +1,54 @@
+.dialogueWrapper {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  height: 100vh;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.332);
+}
+
+.dialogue {
+  top: 60px;
+  width: 50%;
+  z-index: 9999;
+  margin: 0px auto;
+  position: relative;
+  padding: 12px 24px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.product {
+  display: flex;
+  padding: 8px 0px;
+  align-items: center;
+}
+
+.productList {
+  height: 260px;
+  position: relative;
+  overflow-y: scroll;
+  margin-right: -36px;
+}
+
+.productImg {
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 12px;
+}
+
+.productTitle {
+  color: #000;
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.productTitle:hover {
+  text-decoration: underline;
+}
